@@ -3,6 +3,15 @@ import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
+// HTTPS tunnels used to open the app on a phone (install + offline need HTTPS). See RUNNING.md.
+const tunnelHosts = ['.trycloudflare.com', '.ngrok-free.app', '.ngrok.app', '.loca.lt'];
+
+const apiProxy = {
+  target: process.env.API_TARGET ?? 'http://localhost:8787',
+  changeOrigin: true,
+  rewrite: (p: string) => p.replace(/^\/api/, ''),
+};
+
 export default defineConfig({
   plugins: [
     react(),
@@ -85,5 +94,8 @@ export default defineConfig({
       },
     }),
   ],
+  // One origin for every device: /api/* → edge API (see RUNNING.md).
+  server: { host: true, allowedHosts: tunnelHosts, proxy: { '/api': apiProxy } },
+  preview: { host: true, allowedHosts: tunnelHosts, proxy: { '/api': apiProxy } },
   build: { target: 'es2020', sourcemap: true },
 });

@@ -1,8 +1,9 @@
 import { Ranking, RecommendationDetail, SourceStatus } from '@clearsignal/schema';
 import { z } from 'zod';
 
-export const API_BASE: string =
-  (import.meta.env.VITE_API_BASE as string | undefined) ?? 'http://localhost:8787';
+// Default '/api' is same-origin: Vite (dev + preview) proxies it to the edge API on :8787,
+// so any device on the network needs just one address. Production builds set VITE_API_BASE.
+export const API_BASE: string = (import.meta.env.VITE_API_BASE as string | undefined) || '/api';
 
 export class ApiError extends Error {}
 

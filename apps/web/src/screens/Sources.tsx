@@ -1,3 +1,4 @@
+import { API_BASE } from '../api';
 import { shortAge } from '../format';
 import { useApp } from '../state';
 
@@ -51,10 +52,7 @@ export function Sources() {
       </ul>
       <p className="mt-4 text-base text-ink-2">
         Confidence weights are public:{' '}
-        <a
-          className="font-semibold text-info underline"
-          href={`${import.meta.env.VITE_API_BASE ?? 'http://localhost:8787'}/weights`}
-        >
+        <a className="font-semibold text-info underline" href={`${API_BASE}/weights`}>
           weights.yaml
         </a>
       </p>

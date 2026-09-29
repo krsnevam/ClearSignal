@@ -8,6 +8,8 @@ IEEE Response Quest · Impact Challenge #5391. Full build spec: [`buildSpec.md`]
 
 ## Quick start (no accounts needed)
 
+> **Step-by-step for Windows, macOS, Linux, phones and tablets: [RUNNING.md](RUNNING.md).**
+
 ```bash
 corepack enable            # provides pnpm 9 (see packageManager in package.json)
 pnpm install
