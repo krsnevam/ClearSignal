@@ -66,6 +66,12 @@ export default defineConfig({
             options: { cacheName: 'api-sources', networkTimeoutSeconds: 3 },
           },
           {
+            // Self-hosted map glyphs + sprites — needed for labels offline.
+            urlPattern: ({ url }) => url.pathname.startsWith('/basemap/'),
+            handler: 'CacheFirst',
+            options: { cacheName: 'basemap-assets', cacheableResponse: { statuses: [200] } },
+          },
+          {
             // PMTiles basemap — cache-first, never expires; range requests served from the cached file.
             urlPattern: ({ url }) => url.pathname.endsWith('.pmtiles'),
             handler: 'CacheFirst',

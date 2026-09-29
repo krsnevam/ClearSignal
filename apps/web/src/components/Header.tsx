@@ -1,5 +1,6 @@
 import { istDate, istTime } from '../format';
 import { useApp } from '../state';
+import { Logo } from './Icons';
 
 export function Header() {
   const ranking = useApp((s) => s.ranking);
@@ -7,18 +8,20 @@ export function Header() {
   const connected = useApp((s) => s.online && s.reachable);
   const clock = ranking?.scenario_clock_utc;
   return (
-    <header className="flex h-12 shrink-0 items-center justify-between gap-2 bg-ink px-4 text-white">
-      <span className="text-lg font-bold tracking-tight">ClearSignal</span>
-      <span className="flex items-center gap-2 whitespace-nowrap text-base tabular-nums">
-        {ranking?.scenario && (
-          <span
-            className="rounded bg-white/15 px-1 text-sm font-semibold"
-            title="Kodagu August 2018 replay"
-          >
-            2018
+    <header className="flex h-14 shrink-0 items-center justify-between gap-3 bg-ink px-4 text-white">
+      <span className="flex items-center gap-2.5">
+        <Logo className="size-7" />
+        <span className="text-lg font-bold tracking-tight">ClearSignal</span>
+      </span>
+      <span className="flex items-center gap-2.5 whitespace-nowrap">
+        <span className="text-right leading-tight">
+          <span className="block text-base font-semibold tabular">
+            {clock ? istTime(clock) : '--:--'}
           </span>
-        )}
-        <span>Kodagu{clock ? ` · ${istDate(clock)} · ${istTime(clock)}` : ''}</span>
+        </span>
+        <span className="text-base text-white/75">
+          {clock ? `Kodagu · ${istDate(clock)}` : 'Kodagu'}
+        </span>
         <span
           role="img"
           aria-label={connected ? 'Connected' : 'Offline'}

@@ -1,67 +1,74 @@
-import type { ContributingEvent, RecommendationDetail as Detail } from '@clearsignal/schema';
+import type {
+  ContributingEvent,
+  RecommendationDetail as Detail,
+  SourceTier,
+} from '@clearsignal/schema';
 import { useEffect, useState } from 'react';
 import { api } from '../api';
-import { ConfidenceBadge } from '../components/ConfidenceBadge';
+import { BAND_FILL, ConfidenceBadge } from '../components/ConfidenceBadge';
 import { ConflictFlag } from '../components/ConflictFlag';
+import { BackIcon, PinIcon } from '../components/Icons';
+import { SourceAge } from '../components/SourceAge';
 import { shortAge, sourceName } from '../format';
 import { useApp } from '../state';
 import { db } from '../storage/dexie';
 
-const TIER_TEXT = {
-  T1: 'Official sensor',
-  T2: 'Satellite',
-  T3: 'Partner data',
-  T4: 'Citizen',
-} as const;
+const TIER: Record<SourceTier, { label: string; cls: string }> = {
+  T1: { label: 'Official sensor', cls: 'bg-ink text-white' },
+  T2: { label: 'Satellite', cls: 'bg-[#dbe7ff] text-[#1e3a8a]' },
+  T3: { label: 'Partner data', cls: 'bg-paper text-ink' },
+  T4: { label: 'Citizen', cls: 'bg-medium-soft text-medium-ink' },
+};
 
-function ComponentBar({
-  label,
-  gloss,
-  value,
-  weight,
-}: {
-  label: string;
-  gloss: string;
-  value: number;
-  weight: number;
-}) {
-  const points = Math.round(value * weight * 100);
+const PARTS = [
+  {
+    key: 'recency',
+    label: 'Fresh',
+    gloss: 'How recent is the newest signal',
+    color: 'bg-part-fresh',
+    w: 'recency_weight',
+  },
+  {
+    key: 'agreement',
+    label: 'Agreement',
+    gloss: 'Independent sources saying the same',
+    color: 'bg-part-agree',
+    w: 'agreement_weight',
+  },
+  {
+    key: 'reliability',
+    label: 'Trust',
+    gloss: 'Sensors › satellite › partners › SMS',
+    color: 'bg-part-trust',
+    w: 'reliability_weight',
+  },
+] as const;
+
+function Card({ children, className = '' }: { children: React.ReactNode; className?: string }) {
   return (
-    <div className="py-2">
-      <div className="flex items-baseline justify-between">
-        <span className="text-lg font-semibold">{label}</span>
-        <span className="text-base tabular-nums text-ink-2">
-          {value.toFixed(2)} × {weight.toFixed(2)} = <b className="text-ink">{points}</b>
-        </span>
-      </div>
-      <p className="text-base text-ink-2">{gloss}</p>
-      <div className="mt-1 h-3 rounded bg-paper" aria-hidden="true">
-        <div className="h-3 rounded bg-ink" style={{ width: `${Math.round(value * 100)}%` }} />
-      </div>
-    </div>
+    <section
+      className={`rounded-2xl bg-card p-4 shadow-[0_1px_2px_rgb(15_23_32/0.06),0_0_0_1px_rgb(15_23_32/0.05)] ${className}`}
+    >
+      {children}
+    </section>
   );
 }
 
 function Signal({ e }: { e: ContributingEvent }) {
+  const t = TIER[e.source_tier];
   return (
-    <li className="flex gap-3 border-b border-line py-3 last:border-0">
+    <li className="flex gap-3 border-b border-line py-3 last:border-0 last:pb-0">
       <span
-        className={`mt-1 h-fit shrink-0 rounded px-1.5 text-sm font-bold ${e.polarity === -1 ? 'bg-medium text-ink' : 'bg-paper text-ink'}`}
+        className={`mt-0.5 h-fit shrink-0 rounded-md px-1.5 py-0.5 text-sm font-bold tabular ${t.cls}`}
       >
         {e.source_tier}
       </span>
       <div className="min-w-0 flex-1">
         <div className="flex items-baseline justify-between gap-2">
           <span className="text-base font-semibold">{sourceName(e.source_id)}</span>
-          <span className="shrink-0 text-base tabular-nums text-ink-2">
-            {shortAge(e.age_sec)} ago
-          </span>
+          <span className="shrink-0 text-base text-ink-3 tabular">{shortAge(e.age_sec)} ago</span>
         </div>
-        <p className="text-base text-ink-2">
-          {TIER_TEXT[e.source_tier]} ·{' '}
-          {e.polarity === -1 ? <b className="text-ink">says safe</b> : 'reports hazard'}
-        </p>
-        <p className="text-base break-words text-ink">{e.summary}</p>
+        <p className="mt-0.5 text-base break-words text-ink-2">{e.summary}</p>
       </div>
     </li>
   );
@@ -104,98 +111,127 @@ export function RecommendationDetail({ id }: { id: string }) {
   const f = detail?.formula;
   const support = detail?.events.filter((e) => e.polarity === 1) ?? [];
   const oppose = detail?.events.filter((e) => e.polarity === -1) ?? [];
+  const points = rec && f ? PARTS.map((p) => rec.components[p.key] * f[p.w] * 100) : [];
 
   return (
     <div
       role="dialog"
       aria-modal="true"
       aria-label="Recommendation details"
-      className="fixed inset-0 z-20 flex flex-col bg-paper"
+      className="fixed inset-0 z-20 mx-auto flex max-w-2xl flex-col bg-paper"
     >
-      <div className="flex h-14 shrink-0 items-center gap-2 border-b border-line bg-card px-2">
+      <div className="flex h-14 shrink-0 items-center gap-1 bg-card px-1 shadow-[0_1px_0_rgb(15_23_32/0.08)]">
         <button
           type="button"
           onClick={() => set({ selectedId: null })}
-          className="flex size-12 items-center justify-center rounded-lg text-2xl"
+          className="flex size-12 items-center justify-center rounded-full active:bg-paper"
           aria-label="Back to list"
         >
-          ←
+          <BackIcon />
         </button>
-        <h1 className="truncate text-xl font-bold">
-          {rec ? `${rec.place_name} · ${rec.taluka}` : 'Loading…'}
-        </h1>
+        <div className="min-w-0 leading-tight">
+          <h1 className="truncate text-lg font-bold">{rec?.place_name ?? 'Loading…'}</h1>
+          {rec && <p className="text-base text-ink-2">{rec.taluka} taluka</p>}
+        </div>
       </div>
 
-      <div className="cs-sheet flex-1 overflow-y-auto px-4 pb-8">
+      <div className="cs-sheet flex-1 space-y-3 overflow-y-auto px-4 pt-4 pb-8">
         {!detail && error && (
           <p className="py-8 text-lg">Can’t load details offline for this village yet.</p>
         )}
         {rec && f && (
           <>
-            <section className="mt-4 rounded-xl border border-line bg-card p-4">
-              <ConfidenceBadge band={rec.band} score={rec.composite_score} large />
-              <div className="mt-2">
-                <a
-                  className="flex min-h-12 items-center text-base font-semibold text-info underline"
-                  href={`geo:${rec.centroid.lat},${rec.centroid.lon}?q=${rec.centroid.lat},${rec.centroid.lon}(${encodeURIComponent(rec.place_name)})`}
-                >
-                  {rec.centroid.lat.toFixed(4)}° N, {rec.centroid.lon.toFixed(4)}° E
-                </a>
+            <Card className="relative overflow-hidden pl-5">
+              <span
+                aria-hidden="true"
+                className={`absolute inset-y-0 left-0 w-1.5 ${BAND_FILL[rec.band]}`}
+              />
+              <div className="flex items-start justify-between gap-3">
+                <p className="text-lg leading-snug font-medium">{rec.reason_text}</p>
+                <ConfidenceBadge band={rec.band} score={rec.composite_score} large />
               </div>
               {rec.conflict_flag && (
                 <div className="mt-3">
                   <ConflictFlag />
                 </div>
               )}
-              <p className="mt-3 text-lg leading-snug">{rec.reason_text}</p>
-            </section>
+              <div className="mt-3 flex flex-wrap items-center justify-between gap-2 border-t border-line pt-3">
+                <SourceAge seconds={rec.oldest_source_age_sec} stale={rec.stale_flag} />
+                <a
+                  className="inline-flex min-h-12 items-center gap-1.5 rounded-xl px-3 text-base font-semibold text-info active:bg-info-bg"
+                  href={`geo:${rec.centroid.lat},${rec.centroid.lon}?q=${rec.centroid.lat},${rec.centroid.lon}(${encodeURIComponent(rec.place_name)})`}
+                  aria-label={`Open ${rec.place_name} in maps, ${rec.centroid.lat.toFixed(4)} north, ${rec.centroid.lon.toFixed(4)} east`}
+                >
+                  <PinIcon className="size-5" />
+                  Open in maps
+                </a>
+              </div>
+            </Card>
 
-            <section className="mt-4 rounded-xl border border-line bg-card p-4">
-              <h2 className="text-xl font-bold">Why {rec.composite_score}?</h2>
-              <p className="text-base text-ink-2">
-                Three parts, added up. Same formula for every village.
-              </p>
-              <ComponentBar
-                label="Fresh"
-                gloss="How recent is the newest signal?"
-                value={rec.components.recency}
-                weight={f.recency_weight}
-              />
-              <ComponentBar
-                label="Agreement"
-                gloss="How many independent sources say the same thing?"
-                value={rec.components.agreement}
-                weight={f.agreement_weight}
-              />
-              <ComponentBar
-                label="Trust"
-                gloss="How reliable are those sources? Sensors > satellite > partner data > SMS."
-                value={rec.components.reliability}
-                weight={f.reliability_weight}
-              />
-            </section>
+            <Card>
+              <div className="flex items-baseline justify-between">
+                <h2 className="text-xl font-bold">Why {rec.composite_score}?</h2>
+                <span className="text-base text-ink-2">same formula everywhere</span>
+              </div>
+              {/* One bar: the three parts add up to the score. */}
+              <div
+                className="mt-3 flex h-4 overflow-hidden rounded-full bg-paper"
+                aria-hidden="true"
+              >
+                {PARTS.map((p, i) => (
+                  <div
+                    key={p.key}
+                    className={`${p.color} h-full`}
+                    style={{ width: `${points[i]}%` }}
+                  />
+                ))}
+              </div>
+              <ul className="mt-2">
+                {PARTS.map((p, i) => (
+                  <li
+                    key={p.key}
+                    className="flex items-center gap-3 border-b border-line py-2.5 last:border-0"
+                  >
+                    <span
+                      aria-hidden="true"
+                      className={`size-3 shrink-0 rounded-full ${p.color}`}
+                    />
+                    <div className="min-w-0 flex-1">
+                      <p className="text-base font-semibold">{p.label}</p>
+                      <p className="text-base text-ink-2">{p.gloss}</p>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-xl font-bold tabular">+{Math.round(points[i] ?? 0)}</p>
+                      <p className="text-base text-ink-3 tabular">
+                        {rec.components[p.key].toFixed(2)} × {f[p.w].toFixed(2)}
+                      </p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </Card>
 
             {oppose.length > 0 && (
-              <section className="mt-4 rounded-xl border-2 border-medium bg-card p-4">
+              <Card className="shadow-[0_0_0_2px_var(--color-medium)]">
                 <h2 className="text-xl font-bold">Says safe ({oppose.length})</h2>
-                <ul>
+                <ul className="mt-1">
                   {oppose.map((e) => (
                     <Signal key={e.id} e={e} />
                   ))}
                 </ul>
-              </section>
+              </Card>
             )}
 
-            <section className="mt-4 rounded-xl border border-line bg-card p-4">
+            <Card>
               <h2 className="text-xl font-bold">
                 {oppose.length > 0 ? 'Says hazard' : 'Signals'} ({support.length})
               </h2>
-              <ul>
+              <ul className="mt-1">
                 {support.map((e) => (
                   <Signal key={e.id} e={e} />
                 ))}
               </ul>
-            </section>
+            </Card>
           </>
         )}
       </div>

@@ -1,7 +1,10 @@
+import { AlertIcon } from './Icons';
+
 export function ConflictFlag() {
   return (
-    <span className="inline-flex h-8 items-center gap-1 rounded-md border-2 border-medium bg-warn-bg px-2 text-base font-semibold text-ink">
-      <span aria-hidden="true">⚠</span> Sources disagree
+    <span className="inline-flex items-center gap-1.5 rounded-lg bg-warn-bg px-2.5 py-1 text-base font-semibold text-medium-ink">
+      <AlertIcon className="size-[18px]" />
+      Sources disagree
     </span>
   );
 }

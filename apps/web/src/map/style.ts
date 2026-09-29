@@ -1,59 +1,35 @@
+import { layers, namedFlavor } from '@protomaps/basemaps';
 import type { StyleSpecification } from 'maplibre-gl';
 
 /**
- * Basemap style. With the PMTiles clip present we draw a minimal Protomaps
- * vector style (water, roads, places); without it, a plain background so
- * village pins still render fully offline.
+ * Basemap style: Protomaps "light" flavour over the Kodagu PMTiles clip.
+ * Glyphs and sprites are self-hosted under /basemap so labels render offline.
+ * Without the clip we fall back to a plain background (pins still work).
  */
 export function basemapStyle(pmtilesUrl: string | null): StyleSpecification {
-  const base: StyleSpecification = {
-    version: 8,
-    sources: {},
-    layers: [{ id: 'bg', type: 'background', paint: { 'background-color': '#eef1ec' } }],
+  const origin = typeof location === 'undefined' ? '' : location.origin;
+  const common = {
+    version: 8 as const,
+    glyphs: `${origin}/basemap/fonts/{fontstack}/{range}.pbf`,
+    sprite: `${origin}/basemap/sprites/light`,
   };
-  if (!pmtilesUrl) return base;
+  if (!pmtilesUrl) {
+    return {
+      ...common,
+      sources: {},
+      layers: [{ id: 'bg', type: 'background', paint: { 'background-color': '#eef0ea' } }],
+    };
+  }
   return {
-    ...base,
+    ...common,
     sources: {
       protomaps: {
         type: 'vector',
-        url: `pmtiles://${pmtilesUrl}`,
-        attribution: '© OpenStreetMap contributors · Protomaps',
+        url: `pmtiles://${origin}${pmtilesUrl}`,
+        attribution:
+          '© <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> · Protomaps',
       },
     },
-    layers: [
-      ...base.layers,
-      {
-        id: 'earth',
-        type: 'fill',
-        source: 'protomaps',
-        'source-layer': 'earth',
-        paint: { 'fill-color': '#eef1ec' },
-      },
-      {
-        id: 'landuse',
-        type: 'fill',
-        source: 'protomaps',
-        'source-layer': 'landuse',
-        paint: { 'fill-color': '#dfe8d8' },
-      },
-      {
-        id: 'water',
-        type: 'fill',
-        source: 'protomaps',
-        'source-layer': 'water',
-        paint: { 'fill-color': '#a9c8e8' },
-      },
-      {
-        id: 'roads',
-        type: 'line',
-        source: 'protomaps',
-        'source-layer': 'roads',
-        paint: {
-          'line-color': '#ffffff',
-          'line-width': ['interpolate', ['linear'], ['zoom'], 8, 0.5, 14, 3],
-        },
-      },
-    ],
+    layers: layers('protomaps', namedFlavor('light'), { lang: 'en' }),
   };
 }

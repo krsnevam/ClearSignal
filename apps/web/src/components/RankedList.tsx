@@ -11,10 +11,10 @@ export function RankedList({
   onOpen: (id: string) => void;
 }) {
   if (recs.length === 0) {
-    return <p className="px-4 py-8 text-center text-lg text-ink-2">No villages match.</p>;
+    return <p className="px-4 py-10 text-center text-lg text-ink-2">No villages match.</p>;
   }
   return (
-    <ol className="flex flex-col gap-5 px-4 pb-6" aria-label="Villages ranked by evacuation need">
+    <ol className="flex flex-col gap-3 px-4 pb-6" aria-label="Villages ranked by evacuation need">
       {recs.map((r, i) => (
         <RecommendationCard
           key={r.id}

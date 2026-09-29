@@ -3,7 +3,7 @@ import { Header } from './components/Header';
 import { OfflineBanner } from './components/OfflineBanner';
 import { StalenessBanner } from './components/StalenessBanner';
 import { Tabs } from './components/Tabs';
-import { DEFAULT_QUESTION, Primary } from './screens/Primary';
+import { Primary } from './screens/Primary';
 import { RecommendationDetail } from './screens/RecommendationDetail';
 import { Sources } from './screens/Sources';
 import { useApp } from './state';
@@ -28,7 +28,6 @@ export function App() {
   const now = useNow(10_000);
 
   useEffect(() => {
-    useApp.getState().set({ query: DEFAULT_QUESTION });
     void requestPersistence();
     return startSyncLoop();
   }, []);

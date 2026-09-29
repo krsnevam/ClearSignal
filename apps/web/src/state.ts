@@ -1,4 +1,4 @@
-import type { Ranking } from '@clearsignal/schema';
+import type { Band, Ranking } from '@clearsignal/schema';
 import { create } from 'zustand';
 
 export type Tab = 'map' | 'list' | 'sources';
@@ -14,6 +14,7 @@ interface AppState {
   tab: Tab;
   selectedId: string | null;
   query: string;
+  bandFilter: Band | null;
   /** Ids whose card changed on the last sync — briefly highlighted. */
   changed: Set<string>;
   set: (patch: Partial<AppState>) => void;
@@ -28,6 +29,7 @@ export const useApp = create<AppState>((set) => ({
   tab: 'list',
   selectedId: null,
   query: '',
+  bandFilter: null,
   changed: new Set(),
   set: (patch) => set(patch),
 }));
