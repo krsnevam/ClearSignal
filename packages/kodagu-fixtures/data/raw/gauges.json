@@ -1,0 +1,562 @@
+[
+  {
+    "id": "46fc0413-25d6-44cb-bdb7-06b7c175c9e0",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-15T03:00:00.000Z",
+    "lat": 12.38621,
+    "lon": 75.53309,
+    "normalized_value": 1.074,
+    "raw_value": {
+      "station": "Bhagamandala (Triveni Sangama)",
+      "level_m": 6.98,
+      "danger_m": 6.5,
+      "kind": "daily_bulletin"
+    }
+  },
+  {
+    "id": "192c8781-54d1-4abc-8111-34e85bc08e95",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-15T03:00:00.000Z",
+    "lat": 12.3074,
+    "lon": 75.72236,
+    "normalized_value": 1.046,
+    "raw_value": {
+      "station": "Napoklu",
+      "level_m": 7.53,
+      "danger_m": 7.2,
+      "kind": "daily_bulletin"
+    }
+  },
+  {
+    "id": "7df2cdbf-6d69-4146-9cd7-f5b758f50e34",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-15T03:00:00.000Z",
+    "lat": 12.30352,
+    "lon": 75.86603,
+    "normalized_value": 1.005,
+    "raw_value": {
+      "station": "Siddapur",
+      "level_m": 5.53,
+      "danger_m": 5.5,
+      "kind": "daily_bulletin"
+    }
+  },
+  {
+    "id": "54bfcfd9-dad6-4407-bd73-a835f7891ef2",
+    "polarity": 1,
+    "source_id": "nwdp",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-15T23:10:00.000Z",
+    "lat": 12.38684,
+    "lon": 75.53216,
+    "normalized_value": 1.122,
+    "raw_value": {
+      "station": "Bhagamandala (Triveni Sangama) (NWDP)",
+      "level_m": 7.29,
+      "danger_m": 6.5,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "2265ee1a-b11e-4397-aed2-41b73267bda6",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-15T23:15:00.000Z",
+    "lat": 12.38508,
+    "lon": 75.53264,
+    "normalized_value": 1.122,
+    "raw_value": {
+      "station": "Bhagamandala (Triveni Sangama)",
+      "level_m": 7.29,
+      "danger_m": 6.5,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "ea57c404-02b0-447e-8276-5e883fa20ae1",
+    "polarity": 1,
+    "source_id": "nwdp",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T00:10:00.000Z",
+    "lat": 12.38599,
+    "lon": 75.53205,
+    "normalized_value": 1.135,
+    "raw_value": {
+      "station": "Bhagamandala (Triveni Sangama) (NWDP)",
+      "level_m": 7.38,
+      "danger_m": 6.5,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "7546d85e-8c2e-46e6-ae6a-efd268e96c32",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T00:15:00.000Z",
+    "lat": 12.38638,
+    "lon": 75.53298,
+    "normalized_value": 1.135,
+    "raw_value": {
+      "station": "Bhagamandala (Triveni Sangama)",
+      "level_m": 7.38,
+      "danger_m": 6.5,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "7f8fc992-6e9b-4144-b22d-cdce5b976859",
+    "polarity": 1,
+    "source_id": "nwdp",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T01:10:00.000Z",
+    "lat": 12.38524,
+    "lon": 75.53374,
+    "normalized_value": 1.142,
+    "raw_value": {
+      "station": "Bhagamandala (Triveni Sangama) (NWDP)",
+      "level_m": 7.42,
+      "danger_m": 6.5,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "900dff19-543e-42e1-aa9e-7f4d11b4ddb9",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T01:15:00.000Z",
+    "lat": 12.38617,
+    "lon": 75.53389,
+    "normalized_value": 1.142,
+    "raw_value": {
+      "station": "Bhagamandala (Triveni Sangama)",
+      "level_m": 7.42,
+      "danger_m": 6.5,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "14263bb0-24ce-4f91-9104-3d194b0b78a2",
+    "polarity": 1,
+    "source_id": "nwdp",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T02:10:00.000Z",
+    "lat": 12.38577,
+    "lon": 75.53337,
+    "normalized_value": 1.16,
+    "raw_value": {
+      "station": "Bhagamandala (Triveni Sangama) (NWDP)",
+      "level_m": 7.54,
+      "danger_m": 6.5,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "508594b0-d2b8-4a8b-a116-0a3e2b89a537",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T02:15:00.000Z",
+    "lat": 12.38643,
+    "lon": 75.53329,
+    "normalized_value": 1.16,
+    "raw_value": {
+      "station": "Bhagamandala (Triveni Sangama)",
+      "level_m": 7.54,
+      "danger_m": 6.5,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "b8ef9c37-0dc9-43cd-b4d1-0ff417aa258d",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T02:20:00.000Z",
+    "lat": 12.4581,
+    "lon": 75.95949,
+    "normalized_value": 1.014,
+    "raw_value": {
+      "station": "Kushalnagar (Kaveri)",
+      "level_m": 8.11,
+      "danger_m": 8,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "11a31de7-1e3c-4a36-b8b0-47e27ad9b2ac",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T03:00:00.000Z",
+    "lat": 12.38622,
+    "lon": 75.53388,
+    "normalized_value": 1.097,
+    "raw_value": {
+      "station": "Bhagamandala (Triveni Sangama)",
+      "level_m": 7.13,
+      "danger_m": 6.5,
+      "kind": "daily_bulletin"
+    }
+  },
+  {
+    "id": "aeb0efd1-1c05-471f-a15a-862d3669e6e4",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T03:00:00.000Z",
+    "lat": 12.30689,
+    "lon": 75.72159,
+    "normalized_value": 1.107,
+    "raw_value": {
+      "station": "Napoklu",
+      "level_m": 7.97,
+      "danger_m": 7.2,
+      "kind": "daily_bulletin"
+    }
+  },
+  {
+    "id": "ffbbb224-7ce0-4adf-b104-dde66caeff57",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T03:00:00.000Z",
+    "lat": 12.45724,
+    "lon": 75.95872,
+    "normalized_value": 1.127,
+    "raw_value": {
+      "station": "Kushalnagar (Kaveri)",
+      "level_m": 9.02,
+      "danger_m": 8,
+      "kind": "daily_bulletin"
+    }
+  },
+  {
+    "id": "68e7eef8-611c-4658-8ebc-01f0e4d31762",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T03:00:00.000Z",
+    "lat": 12.30389,
+    "lon": 75.86551,
+    "normalized_value": 1.071,
+    "raw_value": {
+      "station": "Siddapur",
+      "level_m": 5.89,
+      "danger_m": 5.5,
+      "kind": "daily_bulletin"
+    }
+  },
+  {
+    "id": "ea73184f-06ce-4ca8-aabc-a8f3911d7ee7",
+    "polarity": 1,
+    "source_id": "nwdp",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T03:10:00.000Z",
+    "lat": 12.38691,
+    "lon": 75.53381,
+    "normalized_value": 1.171,
+    "raw_value": {
+      "station": "Bhagamandala (Triveni Sangama) (NWDP)",
+      "level_m": 7.61,
+      "danger_m": 6.5,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "dec4b477-39c4-4962-890e-7fd867cd2893",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T03:15:00.000Z",
+    "lat": 12.38527,
+    "lon": 75.53275,
+    "normalized_value": 1.171,
+    "raw_value": {
+      "station": "Bhagamandala (Triveni Sangama)",
+      "level_m": 7.61,
+      "danger_m": 6.5,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "58bb9e40-9b36-4fc1-a998-ddff061f9e5b",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T03:20:00.000Z",
+    "lat": 12.45673,
+    "lon": 75.96009,
+    "normalized_value": 1.034,
+    "raw_value": {
+      "station": "Kushalnagar (Kaveri)",
+      "level_m": 8.27,
+      "danger_m": 8,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "03fb7cbe-a0f5-48ff-bf67-55a483f8b8d9",
+    "polarity": 1,
+    "source_id": "nwdp",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T04:10:00.000Z",
+    "lat": 12.38647,
+    "lon": 75.53223,
+    "normalized_value": 1.188,
+    "raw_value": {
+      "station": "Bhagamandala (Triveni Sangama) (NWDP)",
+      "level_m": 7.72,
+      "danger_m": 6.5,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "32a12866-13d4-487b-97a6-a6fd3695dceb",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T04:15:00.000Z",
+    "lat": 12.38536,
+    "lon": 75.53341,
+    "normalized_value": 1.188,
+    "raw_value": {
+      "station": "Bhagamandala (Triveni Sangama)",
+      "level_m": 7.72,
+      "danger_m": 6.5,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "e86dc9cc-c78d-4cb3-9c34-ba5b7df2cd06",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T04:20:00.000Z",
+    "lat": 12.45673,
+    "lon": 75.95938,
+    "normalized_value": 1.056,
+    "raw_value": {
+      "station": "Kushalnagar (Kaveri)",
+      "level_m": 8.45,
+      "danger_m": 8,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "b72b9a1e-c0d9-4f44-8b75-d9102d2baaa5",
+    "polarity": 1,
+    "source_id": "nwdp",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T05:10:00.000Z",
+    "lat": 12.38633,
+    "lon": 75.53381,
+    "normalized_value": 1.197,
+    "raw_value": {
+      "station": "Bhagamandala (Triveni Sangama) (NWDP)",
+      "level_m": 7.78,
+      "danger_m": 6.5,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "d39f8966-3861-4512-a7e3-116547911f20",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T05:15:00.000Z",
+    "lat": 12.38533,
+    "lon": 75.53262,
+    "normalized_value": 1.197,
+    "raw_value": {
+      "station": "Bhagamandala (Triveni Sangama)",
+      "level_m": 7.78,
+      "danger_m": 6.5,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "600bec07-db4d-4ab3-961c-b86151c7f1e8",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T05:20:00.000Z",
+    "lat": 12.45805,
+    "lon": 75.95966,
+    "normalized_value": 1.095,
+    "raw_value": {
+      "station": "Kushalnagar (Kaveri)",
+      "level_m": 8.76,
+      "danger_m": 8,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "bf08ce8c-19cb-4726-8a57-6d1a855c3633",
+    "polarity": 1,
+    "source_id": "nwdp",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T06:10:00.000Z",
+    "lat": 12.38661,
+    "lon": 75.53301,
+    "normalized_value": 1.205,
+    "raw_value": {
+      "station": "Bhagamandala (Triveni Sangama) (NWDP)",
+      "level_m": 7.83,
+      "danger_m": 6.5,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "26486a40-392f-43cd-befb-0d5cb18e9555",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T06:15:00.000Z",
+    "lat": 12.38569,
+    "lon": 75.53359,
+    "normalized_value": 1.205,
+    "raw_value": {
+      "station": "Bhagamandala (Triveni Sangama)",
+      "level_m": 7.83,
+      "danger_m": 6.5,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "c2b167a2-2a6e-42af-8d62-986238140737",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T06:20:00.000Z",
+    "lat": 12.45761,
+    "lon": 75.95873,
+    "normalized_value": 1.124,
+    "raw_value": {
+      "station": "Kushalnagar (Kaveri)",
+      "level_m": 8.99,
+      "danger_m": 8,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "0432a782-437f-4d72-bdad-4f1b0c94f8bc",
+    "polarity": 1,
+    "source_id": "nwdp",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T07:10:00.000Z",
+    "lat": 12.38518,
+    "lon": 75.53331,
+    "normalized_value": 1.223,
+    "raw_value": {
+      "station": "Bhagamandala (Triveni Sangama) (NWDP)",
+      "level_m": 7.95,
+      "danger_m": 6.5,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "3088b15e-1f4c-43ef-8eb3-2c496b037386",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T07:15:00.000Z",
+    "lat": 12.38626,
+    "lon": 75.53385,
+    "normalized_value": 1.223,
+    "raw_value": {
+      "station": "Bhagamandala (Triveni Sangama)",
+      "level_m": 7.95,
+      "danger_m": 6.5,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "a4caa2e3-8edf-481e-8f15-e1ef0f13e007",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-16T07:20:00.000Z",
+    "lat": 12.45677,
+    "lon": 75.95938,
+    "normalized_value": 1.141,
+    "raw_value": {
+      "station": "Kushalnagar (Kaveri)",
+      "level_m": 9.13,
+      "danger_m": 8,
+      "kind": "hourly_telemetry"
+    }
+  },
+  {
+    "id": "a7ddf8a8-6970-4389-a7a2-eddbea560295",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-17T03:00:00.000Z",
+    "lat": 12.38502,
+    "lon": 75.53329,
+    "normalized_value": 1.208,
+    "raw_value": {
+      "station": "Bhagamandala (Triveni Sangama)",
+      "level_m": 7.85,
+      "danger_m": 6.5,
+      "kind": "daily_bulletin"
+    }
+  },
+  {
+    "id": "f9b7dfa5-696b-45e2-ab7d-cf78a9be01be",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-17T03:00:00.000Z",
+    "lat": 12.30641,
+    "lon": 75.72278,
+    "normalized_value": 1.228,
+    "raw_value": {
+      "station": "Napoklu",
+      "level_m": 8.84,
+      "danger_m": 7.2,
+      "kind": "daily_bulletin"
+    }
+  },
+  {
+    "id": "8385adfc-4775-40ce-b4fd-2d5c9b8bad06",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-17T03:00:00.000Z",
+    "lat": 12.45703,
+    "lon": 75.9596,
+    "normalized_value": 1.198,
+    "raw_value": {
+      "station": "Kushalnagar (Kaveri)",
+      "level_m": 9.58,
+      "danger_m": 8,
+      "kind": "daily_bulletin"
+    }
+  },
+  {
+    "id": "237de865-a63f-4423-889f-00f3afb427b4",
+    "polarity": 1,
+    "source_id": "cwc-wris",
+    "event_type": "river_danger",
+    "observed_at_utc": "2018-08-17T03:00:00.000Z",
+    "lat": 12.30394,
+    "lon": 75.86594,
+    "normalized_value": 1.227,
+    "raw_value": {
+      "station": "Siddapur",
+      "level_m": 6.75,
+      "danger_m": 5.5,
+      "kind": "daily_bulletin"
+    }
+  }
+]

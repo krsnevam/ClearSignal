@@ -1,0 +1,20 @@
+app = "clearsignal-worker"
+primary_region = "bom"   # Mumbai
+
+[build]
+  dockerfile = "Dockerfile"
+
+[env]
+  EDGE_INGEST_URL = "https://api.clearsignal.app/ingest"
+  PYTHONUNBUFFERED = "1"
+
+# Secrets (fly secrets set …): INGEST_TOKEN, DATABASE_URL, OPENWEATHER_API_KEY,
+# FIRMS_MAP_KEY, IMD_API_KEY, COPERNICUS_CLIENT_ID, COPERNICUS_CLIENT_SECRET
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "1gb"
+
+[mounts]
+  source = "clearsignal_data"
+  destination = "/data"   # SAR pull cache (/data/s1/*.zarr) so replays are free

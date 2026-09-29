@@ -1,0 +1,267 @@
+{
+ "type": "FeatureCollection",
+ "features": [
+  {
+   "type": "Feature",
+   "bbox": [
+    -174.1824,
+    -19.3714,
+    -174.1824,
+    -19.3714
+   ],
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -174.1824,
+     -19.3714
+    ]
+   },
+   "properties": {
+    "eventtype": "EQ",
+    "eventid": 1568655,
+    "episodeid": 1736753,
+    "eventname": "",
+    "glide": "",
+    "name": "Earthquake in Tonga",
+    "description": "Earthquake in Tonga",
+    "alertlevel": "Green",
+    "alertscore": 1,
+    "episodealertlevel": "Green",
+    "episodealertscore": 0.0,
+    "istemporary": "false",
+    "iscurrent": "true",
+    "country": "Tonga",
+    "fromdate": "2026-09-29T16:12:56",
+    "todate": "2026-09-29T16:12:56",
+    "datemodified": "2026-09-29T17:17:43",
+    "iso3": "TON",
+    "source": "NEIC",
+    "sourceid": "",
+    "polygonlabel": "Centroid",
+    "Class": "Point_Centroid",
+    "affectedcountries": [
+     {
+      "iso2": "TO",
+      "iso3": "TON",
+      "countryname": "Tonga"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "bbox": [
+    -91.4145,
+    -40.9373,
+    -91.4145,
+    -40.9373
+   ],
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -91.4145,
+     -40.9373
+    ]
+   },
+   "properties": {
+    "eventtype": "EQ",
+    "eventid": 1568648,
+    "episodeid": 1736762,
+    "eventname": "",
+    "glide": "",
+    "name": "Earthquake in West Chile Rise",
+    "description": "Earthquake in West Chile Rise",
+    "alertlevel": "Green",
+    "alertscore": 1,
+    "episodealertlevel": "Green",
+    "episodealertscore": 0.0,
+    "istemporary": "false",
+    "iscurrent": "true",
+    "country": "West Chile Rise",
+    "fromdate": "2026-09-29T15:31:18",
+    "todate": "2026-09-29T15:31:18",
+    "datemodified": "2026-09-29T17:57:23",
+    "iso3": "",
+    "source": "NEIC",
+    "sourceid": "",
+    "polygonlabel": "Centroid",
+    "Class": "Point_Centroid",
+    "affectedcountries": []
+   }
+  },
+  {
+   "type": "Feature",
+   "bbox": [
+    -26.0066,
+    -58.7388,
+    -26.0066,
+    -58.7388
+   ],
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -26.0066,
+     -58.7388
+    ]
+   },
+   "properties": {
+    "eventtype": "EQ",
+    "eventid": 1568660,
+    "episodeid": 1736760,
+    "eventname": "",
+    "glide": "",
+    "name": "Earthquake in South Sandwich Islands Region",
+    "description": "Earthquake in South Sandwich Islands Region",
+    "alertlevel": "Green",
+    "alertscore": 1,
+    "episodealertlevel": "Green",
+    "episodealertscore": 0.0,
+    "istemporary": "false",
+    "iscurrent": "true",
+    "country": "South Sandwich Islands Region",
+    "fromdate": "2026-09-29T15:17:18",
+    "todate": "2026-09-29T15:17:18",
+    "datemodified": "2026-09-29T17:44:06",
+    "iso3": "",
+    "source": "NEIC",
+    "sourceid": "",
+    "polygonlabel": "Centroid",
+    "Class": "Point_Centroid",
+    "affectedcountries": []
+   }
+  },
+  {
+   "type": "Feature",
+   "bbox": [
+    -131.6,
+    14.4,
+    -131.6,
+    14.4
+   ],
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -131.6,
+     14.4
+    ]
+   },
+   "properties": {
+    "eventtype": "TC",
+    "eventid": 1001331,
+    "episodeid": 1,
+    "eventname": "NINETEEN-E-26",
+    "glide": "",
+    "name": "Tropical Cyclone NINETEEN-E-26",
+    "description": "Tropical Cyclone NINETEEN-E-26",
+    "alertlevel": "Green",
+    "alertscore": 1,
+    "episodealertlevel": "Green",
+    "episodealertscore": 1.0,
+    "istemporary": "false",
+    "iscurrent": "true",
+    "country": "",
+    "fromdate": "2026-09-29T15:00:00",
+    "todate": "2026-09-29T15:00:00",
+    "datemodified": "2026-09-29T16:40:15",
+    "iso3": "",
+    "source": "NOAA",
+    "sourceid": "",
+    "polygonlabel": "Centroid",
+    "Class": "Point_Centroid",
+    "countryonland": "",
+    "affectedcountries": []
+   }
+  },
+  {
+   "type": "Feature",
+   "bbox": [
+    -110.9,
+    27.8,
+    -110.9,
+    27.8
+   ],
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -110.9,
+     27.8
+    ]
+   },
+   "properties": {
+    "eventtype": "TC",
+    "eventid": 1001325,
+    "episodeid": 36,
+    "eventname": "POLO-26",
+    "glide": "TC-2026-000184-MEX",
+    "name": "Tropical Cyclone POLO-26",
+    "description": "Tropical Cyclone POLO-26",
+    "alertlevel": "Red",
+    "alertscore": 3,
+    "episodealertlevel": "Orange",
+    "episodealertscore": 2.0,
+    "istemporary": "false",
+    "iscurrent": "true",
+    "country": "Mexico",
+    "fromdate": "2026-09-21T03:00:00",
+    "todate": "2026-09-29T15:00:00",
+    "datemodified": "2026-09-29T18:55:20",
+    "iso3": "",
+    "source": "NOAA",
+    "sourceid": "",
+    "polygonlabel": "Centroid",
+    "Class": "Point_Centroid",
+    "countryonland": "",
+    "affectedcountries": [
+     {
+      "iso2": "MX",
+      "iso3": "MEX",
+      "countryname": "Mexico"
+     }
+    ]
+   }
+  },
+  {
+   "type": "Feature",
+   "bbox": [
+    -45.5,
+    34.6,
+    -45.5,
+    34.6
+   ],
+   "geometry": {
+    "type": "Point",
+    "coordinates": [
+     -45.5,
+     34.6
+    ]
+   },
+   "properties": {
+    "eventtype": "TC",
+    "eventid": 1001330,
+    "episodeid": 5,
+    "eventname": "HANNA-26",
+    "glide": "",
+    "name": "Tropical Cyclone HANNA-26",
+    "description": "Tropical Cyclone HANNA-26",
+    "alertlevel": "Green",
+    "alertscore": 1,
+    "episodealertlevel": "Green",
+    "episodealertscore": 1.0,
+    "istemporary": "false",
+    "iscurrent": "true",
+    "country": "",
+    "fromdate": "2026-09-28T15:00:00",
+    "todate": "2026-09-29T15:00:00",
+    "datemodified": "2026-09-29T16:27:42",
+    "iso3": "",
+    "source": "NOAA",
+    "sourceid": "",
+    "polygonlabel": "Centroid",
+    "Class": "Point_Centroid",
+    "countryonland": "",
+    "affectedcountries": []
+   }
+  }
+ ],
+ "bbox": null
+}

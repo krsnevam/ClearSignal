@@ -1,0 +1,8 @@
+{
+  "lat": 12.3858, "lon": 75.5333, "timezone": "Asia/Kolkata", "timezone_offset": 19800,
+  "current": { "dt": 1534390200, "temp": 21.4, "humidity": 98, "rain": { "1h": 38.2 }, "weather": [{ "id": 502, "main": "Rain", "description": "heavy intensity rain" }] },
+  "alerts": [
+    { "sender_name": "India Meteorological Department", "event": "Extremely heavy rain", "start": 1534386600, "end": 1534473000, "description": "Extremely heavy rainfall very likely at isolated places over Kodagu", "tags": ["Rain"] },
+    { "sender_name": "India Meteorological Department", "event": "Thunderstorm", "start": 1534386600, "end": 1534473000, "description": "Lightning likely", "tags": ["Thunderstorm"] }
+  ]
+}

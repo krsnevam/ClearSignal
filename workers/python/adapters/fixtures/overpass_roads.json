@@ -1,0 +1,9 @@
+{
+  "version": 0.6,
+  "elements": [
+    { "type": "way", "id": 101, "tags": { "highway": "primary", "name": "Madikeri–Bhagamandala Road" } },
+    { "type": "way", "id": 102, "tags": { "highway": "tertiary", "name": "Triveni Road", "access": "no", "note": "closed: landslide" } },
+    { "type": "way", "id": 103, "tags": { "highway": "residential" } },
+    { "type": "way", "id": 104, "tags": { "highway": "unclassified", "description": "washed out near bridge" } }
+  ]
+}

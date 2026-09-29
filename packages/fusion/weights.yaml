@@ -1,0 +1,54 @@
+# ClearSignal confidence engine — the single runtime source of truth.
+# Edited by file, never by UI (spec §1.4). Changing any number here changes
+# every score; the Village A / Village B golden test must still pass.
+#
+#   Score = recency_weight × recency + agreement_weight × agreement
+#         + reliability_weight × reliability          (normalized to 0–100)
+#
+# Component definitions (see docs/ARCHITECTURE.md §Fusion):
+#   recency     = max over contributing events of exp(-age / half_life[source])
+#   agreement   = min(1, n_independent / max_sources_for_full_score), where
+#                 n_independent = (# distinct tiers reporting)
+#                               + same_tier_report_weight × (# further reports)
+#                 counted over events within window_seconds of the newest
+#                 contributing event. All-clear reports subtract the same way.
+#   reliability = recency-weighted mean of the tier weights of contributing events
+version: 1.0
+formula:
+  recency_weight: 0.35
+  agreement_weight: 0.45
+  reliability_weight: 0.20
+bands:
+  high_threshold: 70
+  medium_threshold: 40
+tier_weights:
+  T1: 1.00
+  T2: 0.85
+  T3: 0.60
+  T4: 0.35
+source_half_life_seconds:
+  sentinel-1-cdse: 21600      # 6h — matches revisit
+  sentinel-2-cdse: 43200
+  cems-gfm: 86400
+  firms-nasa: 10800
+  openweather: 900            # 15m — rain is time-critical
+  imd: 900
+  cwc-wris: 3600
+  nwdp: 3600
+  overpass: 21600             # road status decays slowly
+  gdacs: 300
+  usgs-quake: 300
+  twilio-sms: 900
+  msg91-sms: 900
+  discom-outage: 1800
+agreement:
+  window_seconds: 3600
+  independence_by: tier       # only cross-tier signals count as fully independent
+  same_tier_report_weight: 0.5  # each further report from an already-counted tier
+  max_sources_for_full_score: 4
+contribution:
+  min_recency: 0.25           # an event stops contributing below this decay (~1.4 half-lives)
+  max_events: 12              # top-N freshest events per location
+                              # a location with none left keeps its single freshest event (shown Stale)
+staleness:
+  missing_source_half_life_multiple: 2  # T1/T2 source silent > 2× half-life → chip

@@ -1,0 +1,230 @@
+[
+  {
+    "id": "3d5ac66d-849c-4c76-81df-899b3ecaecaa",
+    "polarity": 1,
+    "source_id": "cems-gfm",
+    "event_type": "flood_extent",
+    "observed_at_utc": "2018-08-16T00:00:00.000Z",
+    "lat": 12.38765,
+    "lon": 75.53534,
+    "normalized_value": 1,
+    "raw_value": {
+      "product": "GFM ensemble flood extent",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "1c62971f-41c9-4336-b01c-2cb6f34ff44f",
+    "polarity": 1,
+    "source_id": "cems-gfm",
+    "event_type": "flood_extent",
+    "observed_at_utc": "2018-08-16T00:00:00.000Z",
+    "lat": 12.46727,
+    "lon": 75.76347,
+    "normalized_value": 1,
+    "raw_value": {
+      "product": "GFM ensemble flood extent",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "ccf8e0ae-d958-4003-aa4b-2bf141ee35db",
+    "polarity": 1,
+    "source_id": "cems-gfm",
+    "event_type": "flood_extent",
+    "observed_at_utc": "2018-08-16T00:00:00.000Z",
+    "lat": 12.30977,
+    "lon": 75.7182,
+    "normalized_value": 1,
+    "raw_value": {
+      "product": "GFM ensemble flood extent",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "bd0b8642-2889-40cf-b977-2a356459b374",
+    "polarity": 1,
+    "source_id": "sentinel-1-cdse",
+    "event_type": "flood_extent",
+    "observed_at_utc": "2018-08-16T03:08:00.000Z",
+    "lat": 12.46557,
+    "lon": 75.76223,
+    "normalized_value": 0.87,
+    "raw_value": {
+      "flood_probability": 0.87,
+      "algorithm": "dask-flood-mapper (TU Wien Bayesian)",
+      "orbit": "descending",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "65286480-4201-4608-8802-779b9901c14b",
+    "polarity": 1,
+    "source_id": "sentinel-1-cdse",
+    "event_type": "flood_extent",
+    "observed_at_utc": "2018-08-16T03:08:00.000Z",
+    "lat": 12.4904,
+    "lon": 75.74176,
+    "normalized_value": 0.97,
+    "raw_value": {
+      "flood_probability": 0.97,
+      "algorithm": "dask-flood-mapper (TU Wien Bayesian)",
+      "orbit": "descending",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "677ab8a6-9f8a-412a-9ded-4294c633cfc8",
+    "polarity": 1,
+    "source_id": "sentinel-1-cdse",
+    "event_type": "flood_extent",
+    "observed_at_utc": "2018-08-16T03:08:00.000Z",
+    "lat": 12.4541,
+    "lon": 75.66374,
+    "normalized_value": 0.94,
+    "raw_value": {
+      "flood_probability": 0.94,
+      "algorithm": "dask-flood-mapper (TU Wien Bayesian)",
+      "orbit": "descending",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "72fe314b-7ee2-429a-8802-6aedbd5d8138",
+    "polarity": 1,
+    "source_id": "sentinel-1-cdse",
+    "event_type": "flood_extent",
+    "observed_at_utc": "2018-08-16T03:08:00.000Z",
+    "lat": 12.45751,
+    "lon": 75.96024,
+    "normalized_value": 0.76,
+    "raw_value": {
+      "flood_probability": 0.76,
+      "algorithm": "dask-flood-mapper (TU Wien Bayesian)",
+      "orbit": "descending",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "ae91a935-3d58-41c0-a764-d8a4b8411521",
+    "polarity": 1,
+    "source_id": "cems-gfm",
+    "event_type": "flood_extent",
+    "observed_at_utc": "2018-08-17T00:00:00.000Z",
+    "lat": 12.38726,
+    "lon": 75.53249,
+    "normalized_value": 1,
+    "raw_value": {
+      "product": "GFM ensemble flood extent",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "1ac0b25d-4765-4e9c-8e92-1fcfb613a17d",
+    "polarity": 1,
+    "source_id": "cems-gfm",
+    "event_type": "flood_extent",
+    "observed_at_utc": "2018-08-17T00:00:00.000Z",
+    "lat": 12.45643,
+    "lon": 75.96041,
+    "normalized_value": 1,
+    "raw_value": {
+      "product": "GFM ensemble flood extent",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "0545a43e-f641-4e4c-a293-046c7dfacc2f",
+    "polarity": 1,
+    "source_id": "cems-gfm",
+    "event_type": "flood_extent",
+    "observed_at_utc": "2018-08-17T00:00:00.000Z",
+    "lat": 12.48854,
+    "lon": 75.74389,
+    "normalized_value": 1,
+    "raw_value": {
+      "product": "GFM ensemble flood extent",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "554d879c-a596-4ad5-b88a-bdb0cb37e338",
+    "polarity": 1,
+    "source_id": "sentinel-1-cdse",
+    "event_type": "flood_extent",
+    "observed_at_utc": "2018-08-17T02:10:00.000Z",
+    "lat": 12.46558,
+    "lon": 75.76021,
+    "normalized_value": 0.87,
+    "raw_value": {
+      "flood_probability": 0.87,
+      "algorithm": "dask-flood-mapper (TU Wien Bayesian)",
+      "orbit": "descending",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "f21b96a8-0f76-4040-8d1d-488a9a62b4c8",
+    "polarity": 1,
+    "source_id": "sentinel-1-cdse",
+    "event_type": "flood_extent",
+    "observed_at_utc": "2018-08-17T02:10:00.000Z",
+    "lat": 12.49062,
+    "lon": 75.7426,
+    "normalized_value": 0.95,
+    "raw_value": {
+      "flood_probability": 0.95,
+      "algorithm": "dask-flood-mapper (TU Wien Bayesian)",
+      "orbit": "descending",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "206b26f8-28ef-4006-8dbb-3a1536c807fb",
+    "polarity": 1,
+    "source_id": "sentinel-1-cdse",
+    "event_type": "flood_extent",
+    "observed_at_utc": "2018-08-17T02:10:00.000Z",
+    "lat": 12.45898,
+    "lon": 75.95953,
+    "normalized_value": 0.75,
+    "raw_value": {
+      "flood_probability": 0.75,
+      "algorithm": "dask-flood-mapper (TU Wien Bayesian)",
+      "orbit": "descending",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "d5a6b8a5-399e-44ed-8f0a-a3320426f868",
+    "polarity": 1,
+    "source_id": "sentinel-1-cdse",
+    "event_type": "flood_extent",
+    "observed_at_utc": "2018-08-17T02:10:00.000Z",
+    "lat": 12.52091,
+    "lon": 75.73305,
+    "normalized_value": 0.85,
+    "raw_value": {
+      "flood_probability": 0.85,
+      "algorithm": "dask-flood-mapper (TU Wien Bayesian)",
+      "orbit": "descending",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "420ae713-eada-44fa-af29-668e253c2c39",
+    "polarity": 1,
+    "source_id": "sentinel-1-cdse",
+    "event_type": "flood_extent",
+    "observed_at_utc": "2018-08-17T02:10:00.000Z",
+    "lat": 12.38745,
+    "lon": 75.5319,
+    "normalized_value": 0.85,
+    "raw_value": {
+      "flood_probability": 0.85,
+      "algorithm": "dask-flood-mapper (TU Wien Bayesian)",
+      "orbit": "descending",
+      "reconstructed": true
+    }
+  }
+]

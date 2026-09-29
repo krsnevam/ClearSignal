@@ -1,0 +1,362 @@
+[
+  {
+    "id": "550857a9-62fd-4128-8726-a04938cd7f00",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-15T05:30:00.000Z",
+    "lat": 12.45615,
+    "lon": 75.66293,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "madenadu landslide near school",
+      "synthetic": true,
+      "from_hash": "sha256:1bbb7925d9ee436e"
+    }
+  },
+  {
+    "id": "f3cf4d7d-112b-4647-b2c3-622f4c15865f",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-15T07:30:00.000Z",
+    "lat": 12.50726,
+    "lon": 75.66964,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "monnangeri road blocked by mud",
+      "synthetic": true,
+      "from_hash": "sha256:b766fee171ca425d"
+    }
+  },
+  {
+    "id": "b58815ec-9eeb-4eca-91b0-c6336bf1b4a7",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-15T09:10:00.000Z",
+    "lat": 12.47764,
+    "lon": 75.70854,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "kalur families moved to relief camp",
+      "synthetic": true,
+      "from_hash": "sha256:9872a13280ac4106"
+    }
+  },
+  {
+    "id": "ab574dbb-ec23-4214-a46c-50100bda6e66",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-15T12:30:00.000Z",
+    "lat": 12.50174,
+    "lon": 75.56961,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "sampaje ghat closed trucks stuck",
+      "synthetic": true,
+      "from_hash": "sha256:2f554ed6874a4786"
+    }
+  },
+  {
+    "id": "7b1528f8-438f-43b2-a9ce-e48dc10ecfbe",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-15T13:20:00.000Z",
+    "lat": 12.38712,
+    "lon": 75.49456,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "talakaveri heavy rain slope sliding",
+      "synthetic": true,
+      "from_hash": "sha256:6f27b619bd064716"
+    }
+  },
+  {
+    "id": "1e0eedd3-2aee-4e40-b642-ebe580ee9f72",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-15T15:50:00.000Z",
+    "lat": 12.42689,
+    "lon": 75.73929,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "madikeri market area waterlogged",
+      "synthetic": true,
+      "from_hash": "sha256:992faedc7d414d3d"
+    }
+  },
+  {
+    "id": "4ef753cb-b84b-4c9a-b56f-4dae4c59967e",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-15T16:50:00.000Z",
+    "lat": 12.59794,
+    "lon": 75.85279,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "somwarpet trees down on road",
+      "synthetic": true,
+      "from_hash": "sha256:730359036901472d"
+    }
+  },
+  {
+    "id": "3379c80d-6f53-4d70-8596-87eba2ec9e52",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-15T18:10:00.000Z",
+    "lat": 12.52308,
+    "lon": 75.73132,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "hattihole no network since morning",
+      "synthetic": true,
+      "from_hash": "sha256:673193bdf61b4a5a"
+    }
+  },
+  {
+    "id": "2b7e3553-926d-4bcf-b525-685dd4198328",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-16T00:30:00.000Z",
+    "lat": 12.14767,
+    "lon": 75.94386,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "ponnampet water near river houses",
+      "synthetic": true,
+      "from_hash": "sha256:e0ca85b57ef24889"
+    }
+  },
+  {
+    "id": "8067f38c-af05-4345-b500-63f802cee6f7",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-16T02:10:00.000Z",
+    "lat": 12.49512,
+    "lon": 75.641,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "jodupala bridge cut off, families on hill",
+      "synthetic": true,
+      "from_hash": "sha256:3a7dd8b872d540f1"
+    }
+  },
+  {
+    "id": "4d7e7f3d-36ce-4003-931d-1ad340e3372f",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-16T02:30:00.000Z",
+    "lat": 12.43178,
+    "lon": 75.6856,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "galibeedu stream flooding fields",
+      "synthetic": true,
+      "from_hash": "sha256:ea41563178164dc7"
+    }
+  },
+  {
+    "id": "e6659924-220c-43d9-88f4-7b244271c0fd",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-16T03:11:00.000Z",
+    "lat": 12.46184,
+    "lon": 75.76053,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "makkandur hillside cracking, houses flooded",
+      "synthetic": true,
+      "from_hash": "sha256:975bf0321c3744ec"
+    }
+  },
+  {
+    "id": "a1a08ef6-fb78-4599-9735-b6a320c0f7d6",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-16T03:13:00.000Z",
+    "lat": 12.46391,
+    "lon": 75.7608,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "flood makkandur elderly stuck",
+      "synthetic": true,
+      "from_hash": "sha256:046303b8e8bb4908"
+    }
+  },
+  {
+    "id": "02d86f14-4462-4dc9-8903-b1fa897a1488",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-16T03:18:00.000Z",
+    "lat": 12.46257,
+    "lon": 75.7643,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "Makkandur road gone, 30 people on temple hill",
+      "synthetic": true,
+      "from_hash": "sha256:2c66abfd7a3340c6"
+    }
+  },
+  {
+    "id": "0b3f4532-95a1-4031-8470-121e58c06dc9",
+    "polarity": -1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-16T03:20:00.000Z",
+    "lat": 12.49056,
+    "lon": 75.74108,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "mukkodlu water gone down we are safe",
+      "synthetic": true,
+      "from_hash": "sha256:fa1e8be1d93a4536"
+    }
+  },
+  {
+    "id": "6b30de82-a30c-4bb8-9521-608b5e9f3eea",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-16T03:21:00.000Z",
+    "lat": 12.3851,
+    "lon": 75.53492,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "Bhagamandala bus stand under water",
+      "synthetic": true,
+      "from_hash": "sha256:f97ea5386d8c4316"
+    }
+  },
+  {
+    "id": "1572bf67-b498-4c51-85da-79cc29e518a2",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-16T03:25:00.000Z",
+    "lat": 12.46074,
+    "lon": 75.7635,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "water entering houses near makkandur school, need boat",
+      "synthetic": true,
+      "from_hash": "sha256:f7d71a2264e640b8"
+    }
+  },
+  {
+    "id": "36bd45ee-cac4-47f7-98ad-406b01d2ce63",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-16T03:27:00.000Z",
+    "lat": 12.38735,
+    "lon": 75.53356,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "triveni sangama overflowing into shops bhagamandala",
+      "synthetic": true,
+      "from_hash": "sha256:c2c1da152b464d58"
+    }
+  },
+  {
+    "id": "c8a480c9-8f24-44a0-99a9-183f8b4b4237",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-16T03:45:00.000Z",
+    "lat": 12.52466,
+    "lon": 75.7327,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "hattihole landslide 3 houses gone",
+      "synthetic": true,
+      "from_hash": "sha256:a2bad3781cef40f7"
+    }
+  },
+  {
+    "id": "c2af6855-d3e4-4ef2-880d-387540694f77",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-16T03:50:00.000Z",
+    "lat": 12.46476,
+    "lon": 75.76031,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "makkandur still flooding, no power",
+      "synthetic": true,
+      "from_hash": "sha256:51db32c2c62c4baf"
+    }
+  },
+  {
+    "id": "35c10969-db02-4308-9b88-c7ffd6cc8f60",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-16T04:10:00.000Z",
+    "lat": 12.30796,
+    "lon": 75.72042,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "napoklu low areas flooding",
+      "synthetic": true,
+      "from_hash": "sha256:412f6dd9f2b7435b"
+    }
+  },
+  {
+    "id": "3f60f31c-d3a8-4add-9ed2-52f23405b35c",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-16T04:25:00.000Z",
+    "lat": 12.46412,
+    "lon": 75.76047,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "makkandur need medicine, 2 injured",
+      "synthetic": true,
+      "from_hash": "sha256:3d38526975e044a4"
+    }
+  },
+  {
+    "id": "cdfbf8c3-13de-43c8-9b98-d30f2ff3b203",
+    "polarity": -1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-16T04:40:00.000Z",
+    "lat": 12.4908,
+    "lon": 75.73885,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "mukkodlu safe, road open to madikeri",
+      "synthetic": true,
+      "from_hash": "sha256:def64fb53bd4428f"
+    }
+  },
+  {
+    "id": "c3f988c3-f42c-46ce-85d3-8ec6b85fb075",
+    "polarity": 1,
+    "source_id": "twilio-sms",
+    "event_type": "citizen_report",
+    "observed_at_utc": "2018-08-16T05:20:00.000Z",
+    "lat": 12.46132,
+    "lon": 75.76137,
+    "normalized_value": null,
+    "raw_value": {
+      "body": "makkandur water rising again",
+      "synthetic": true,
+      "from_hash": "sha256:b5fb326f5ace4aef"
+    }
+  }
+]

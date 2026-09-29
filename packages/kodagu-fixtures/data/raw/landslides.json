@@ -1,0 +1,1581 @@
+[
+  {
+    "id": "44677c79-b93f-4f17-b0c2-34839eb78189",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-10T04:48:43.271Z",
+    "lat": 12.36845,
+    "lon": 75.48566,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-001",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "9390a0d2-d7a1-4727-92fc-e508a8137411",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-10T13:08:34.955Z",
+    "lat": 12.47512,
+    "lon": 75.71004,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-002",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "b6a29940-6e52-445f-b904-dd7ebd854fb3",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-10T23:04:02.262Z",
+    "lat": 12.50497,
+    "lon": 75.74432,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-003",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "e0d09432-39b0-43f0-a77e-5950b3d93b2d",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-11T11:02:57.245Z",
+    "lat": 12.44169,
+    "lon": 75.67519,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-004",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "069013cf-6570-4ba2-bc80-4b7190770406",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-11T22:33:53.792Z",
+    "lat": 12.42087,
+    "lon": 75.67559,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-008",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "863f8e7d-8f44-4891-a743-9564a6236b4a",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-12T04:19:49.046Z",
+    "lat": 12.52568,
+    "lon": 75.71916,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-006",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "ef79c671-804a-459d-863f-bb8b400b4f4f",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-12T06:51:40.942Z",
+    "lat": 12.46956,
+    "lon": 75.76378,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-005",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "f48c38ec-173e-4670-985b-1d3a998a6a09",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-12T13:33:28.318Z",
+    "lat": 12.50663,
+    "lon": 75.65462,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-007",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "cc60a72b-d4df-4aac-840f-6917c2d42dcc",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-13T03:33:05.079Z",
+    "lat": 12.46817,
+    "lon": 75.65801,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-012",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "2b3b1ab4-f077-4ac2-a6d2-51c0fd6a4651",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-13T05:20:21.379Z",
+    "lat": 12.39487,
+    "lon": 75.4883,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-014",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "bdd6a713-cf18-4c62-bdda-422fe45ddf69",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-13T07:42:36.812Z",
+    "lat": 12.45158,
+    "lon": 75.75887,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-011",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "e2a1797d-3634-4186-aa7b-fef94c949156",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-13T15:35:07.307Z",
+    "lat": 12.48788,
+    "lon": 75.58043,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-010",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "02449e1e-b553-4d73-9f7e-15c8217dca33",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-13T16:15:56.169Z",
+    "lat": 12.60305,
+    "lon": 75.8542,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-013",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "b4f988c7-46e1-462a-bfa7-7c85df7b64cd",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-13T18:07:01.617Z",
+    "lat": 12.51733,
+    "lon": 75.67626,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-009",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "d3e1462c-5ffb-487c-b709-e82bfea335b2",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-13T19:25:02.177Z",
+    "lat": 12.50571,
+    "lon": 75.7338,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-018",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "55441cc4-f563-405c-b29a-fc6a2cd9f2f5",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-13T19:53:02.851Z",
+    "lat": 12.50603,
+    "lon": 75.74906,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-017",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "6352a1e9-9d23-491d-ac17-36093cee252c",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-13T20:25:19.620Z",
+    "lat": 12.50654,
+    "lon": 75.72299,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-015",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "def0ef5b-67d6-4c7c-a6ab-1feca5d93cd0",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-13T21:47:11.108Z",
+    "lat": 12.58278,
+    "lon": 75.84907,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-020",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "4dd9487e-969e-4ed5-800a-337bbe7490cb",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-13T21:48:35.791Z",
+    "lat": 12.46269,
+    "lon": 75.77549,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-025",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "efc1dcc8-c261-4a65-a20d-c88a09697b81",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-13T23:44:26.460Z",
+    "lat": 12.53935,
+    "lon": 75.73699,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-022",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "58ac603f-5cb3-41c5-8fa9-b161f995bb30",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-14T08:56:12.771Z",
+    "lat": 12.51638,
+    "lon": 75.73391,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-023",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "a997f9f2-0de0-48f6-99c7-569b244d2564",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-14T10:33:27.839Z",
+    "lat": 12.45702,
+    "lon": 75.74673,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-021",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "355e2e83-00fb-47b5-9b72-c51fc560265f",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-14T12:48:41.746Z",
+    "lat": 12.45505,
+    "lon": 75.77988,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-026",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "7d2ed1a0-2fe2-40e6-becb-a954dc72e407",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-14T13:05:23.177Z",
+    "lat": 12.45794,
+    "lon": 75.74857,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-019",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "6d6ea3f3-0a55-4a3b-a4f2-6631776ad116",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-14T13:41:00.837Z",
+    "lat": 12.4757,
+    "lon": 75.69885,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-024",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "dc180bec-5a6c-4844-b65e-760f571c19e8",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-14T15:05:21.956Z",
+    "lat": 12.46536,
+    "lon": 75.71541,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-016",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "ac21fa76-1f2d-4678-b9cd-ebd974aba740",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-14T21:48:14.466Z",
+    "lat": 12.53448,
+    "lon": 75.74001,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-037",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "afb323fb-9697-4c61-9824-7fdef0676021",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-14T22:30:13.768Z",
+    "lat": 12.47365,
+    "lon": 75.71886,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-048",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "28ff9243-f9e0-4bcf-b300-9bae6765b02e",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-14T23:45:50.470Z",
+    "lat": 12.44978,
+    "lon": 75.75966,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-027",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "c92cd65e-53e2-4912-aa22-8f52c8ac1269",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T02:12:21.481Z",
+    "lat": 12.50601,
+    "lon": 75.68004,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-033",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "3b3b431a-0acd-4d0c-bfaa-9c27c6a8cb43",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T02:42:44.653Z",
+    "lat": 12.50485,
+    "lon": 75.73622,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-032",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "91e458fa-bf29-4c76-b77f-8afe34270ff8",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T03:45:41.584Z",
+    "lat": 12.4891,
+    "lon": 75.75502,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-030",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "0984ceee-750e-481e-a032-0cdbd9124fd0",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T04:09:53.026Z",
+    "lat": 12.50654,
+    "lon": 75.66345,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-038",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "877ebbd3-cb2c-436c-97e6-ba64cfc629a7",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T04:36:44.241Z",
+    "lat": 12.47444,
+    "lon": 75.73143,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-040",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "0b4a0afe-3969-4bc1-9841-ab75f1ed8ba6",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T05:35:33.854Z",
+    "lat": 12.49242,
+    "lon": 75.57889,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-031",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "66f1fcf8-b046-4222-8ce5-e51dd1863a0a",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T05:49:44.764Z",
+    "lat": 12.47665,
+    "lon": 75.69985,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-028",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "72a92180-a9f7-492a-9d78-820a32b54213",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T05:59:22.726Z",
+    "lat": 12.51066,
+    "lon": 75.72332,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-039",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "b498e244-06d7-4dad-b01a-84109f3771cc",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T08:27:29.953Z",
+    "lat": 12.53501,
+    "lon": 75.72575,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-045",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "20a4fbe5-e2b3-4319-a857-164654d3bef4",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T10:47:04.428Z",
+    "lat": 12.4697,
+    "lon": 75.77353,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-035",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "488569fb-2ce3-47ff-a57b-b4efa2548d05",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T11:36:11.355Z",
+    "lat": 12.48619,
+    "lon": 75.70717,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-047",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "6fe61e11-82a5-482d-b0a6-363f7f7fd2b4",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T13:18:53.164Z",
+    "lat": 12.47985,
+    "lon": 75.62466,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-036",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "5c25f82a-79cc-412c-8076-a362ed2ee15a",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T13:51:01.090Z",
+    "lat": 12.50967,
+    "lon": 75.55806,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-041",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "9b2e45a7-f623-42d5-8202-110760be32cc",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T13:58:59.921Z",
+    "lat": 12.44319,
+    "lon": 75.68187,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-043",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "8a04519e-0dea-4152-9b5e-d8a13e176844",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T14:07:42.225Z",
+    "lat": 12.47795,
+    "lon": 75.70378,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-046",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "cc3f20f7-b1cf-4583-aef1-098d7e4ec1bd",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T14:51:19.018Z",
+    "lat": 12.47575,
+    "lon": 75.74841,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-044",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "8172a14c-7489-4f8b-b7cf-335364eb68bb",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T17:15:09.454Z",
+    "lat": 12.38693,
+    "lon": 75.50951,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-029",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "c7f76206-72ba-4de3-9204-5e78186c3fd9",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T17:44:26.242Z",
+    "lat": 12.52224,
+    "lon": 75.73195,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-042",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "b968cd5b-058f-4069-83e6-a164a62fb4a8",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T18:00:47.191Z",
+    "lat": 12.46686,
+    "lon": 75.76122,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-034",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "1a6dc995-5ecd-4b23-a74f-deef22c0d3ef",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T20:19:55.475Z",
+    "lat": 12.44281,
+    "lon": 75.66839,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-053",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "34a5e79e-4897-430b-9ebc-c3b1c5ae4f60",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T20:52:11.192Z",
+    "lat": 12.53224,
+    "lon": 75.71347,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-066",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "3b63b23e-1e5c-4b85-aa9a-aa78ab408e59",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T20:59:21.548Z",
+    "lat": 12.48942,
+    "lon": 75.65558,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-074",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "283487f6-6f96-4cc3-aa24-aae44e63846b",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T20:59:58.999Z",
+    "lat": 12.44247,
+    "lon": 75.70085,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-075",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "b6458895-94da-4ead-89a8-3ec2d63f12fe",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T21:04:13.455Z",
+    "lat": 12.49902,
+    "lon": 75.62477,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-071",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "1fed59ef-b44e-4548-931a-d790cf990fbe",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T21:35:44.774Z",
+    "lat": 12.44998,
+    "lon": 75.67458,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-072",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "72a30903-2b22-4356-9018-4cf1f746376a",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-15T22:56:03.629Z",
+    "lat": 12.5434,
+    "lon": 75.74234,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-064",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "3c59b498-fb84-43cc-8db2-75381b934fd5",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T00:01:55.777Z",
+    "lat": 12.49162,
+    "lon": 75.64467,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-060",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "4d2a8dca-a3d7-444e-9340-5eea15aded96",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T00:24:19.912Z",
+    "lat": 12.50085,
+    "lon": 75.73514,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-049",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "225ddba5-8d86-4226-a379-ea7bd8b69314",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T01:43:22.375Z",
+    "lat": 12.44886,
+    "lon": 75.66077,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-073",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "451bf7d5-747f-4833-a248-e48c54bdc6e6",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T01:53:52.142Z",
+    "lat": 12.49111,
+    "lon": 75.69773,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-068",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "50ec1377-7366-46f0-b62a-1813c0ac0a13",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T02:00:00.000Z",
+    "lat": 12.49855,
+    "lon": 75.64073,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "road": "NH-275 at Jodupala",
+      "ref": "KDG-LS-2018-105",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "d1cc39d8-d15a-49f4-bcbb-8bc799343cb1",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T02:40:00.000Z",
+    "lat": 12.52846,
+    "lon": 75.73468,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "road": "Hattihole–Madapura road",
+      "ref": "KDG-LS-2018-103",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "4c64917e-560a-4c92-acae-d4b0245d49a6",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T03:20:57.190Z",
+    "lat": 12.48244,
+    "lon": 75.55333,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-076",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "2f0aec74-7b95-4053-b278-ccb19661c7e7",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T03:31:01.082Z",
+    "lat": 12.47575,
+    "lon": 75.72487,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-054",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "06d76878-5f14-4a3f-ad44-a5c19c408771",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T03:55:00.000Z",
+    "lat": 12.52801,
+    "lon": 75.72763,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "road": "Hattihole bridge approach",
+      "ref": "KDG-LS-2018-104",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "43b35490-83b4-463e-a081-4b08e692fe6b",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T04:05:00.000Z",
+    "lat": 12.46823,
+    "lon": 75.76515,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "road": "Makkandur–Madikeri road",
+      "ref": "KDG-LS-2018-102",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "df725458-aff4-486a-8422-cfc3b5ee2afe",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T04:43:18.285Z",
+    "lat": 12.38757,
+    "lon": 75.47993,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-078",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "44283bc2-e70c-4758-ac0e-4f618c4ab4db",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T07:09:52.404Z",
+    "lat": 12.53031,
+    "lon": 75.74003,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-051",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "9dbb6629-886a-4144-bc87-0616a8e72aca",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T08:16:15.812Z",
+    "lat": 12.46935,
+    "lon": 75.67731,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-061",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "311f33e2-27bc-498e-b384-c4e470284e57",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T09:42:14.872Z",
+    "lat": 12.4467,
+    "lon": 75.77374,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-056",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "6c8f637c-02e7-4d34-87fb-60f29c6f260d",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T09:48:56.304Z",
+    "lat": 12.41837,
+    "lon": 75.69217,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-070",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "a710b6a7-c93c-4104-85d7-cf013e5bd681",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T10:11:39.767Z",
+    "lat": 12.49696,
+    "lon": 75.57438,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-065",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "460389b3-d88a-460c-b295-92d9e0df46da",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T10:54:34.133Z",
+    "lat": 12.47494,
+    "lon": 75.66101,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-067",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "1514cdb2-5322-453b-86ce-c1f355f59782",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T11:48:18.423Z",
+    "lat": 12.47224,
+    "lon": 75.75677,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-057",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "a3e0bd47-4514-4434-941e-f45276fe9324",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T14:16:59.553Z",
+    "lat": 12.48873,
+    "lon": 75.73288,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-069",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "57b08327-474f-45ec-afdc-7f533af57c05",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T14:30:47.499Z",
+    "lat": 12.44344,
+    "lon": 75.70302,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-055",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "eaf209ee-365a-4347-b711-707d96eb9888",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T16:08:20.463Z",
+    "lat": 12.47526,
+    "lon": 75.71709,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-077",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "b47e4f4f-ad3f-4c72-92ab-9d86089d461a",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T16:11:31.484Z",
+    "lat": 12.37277,
+    "lon": 75.50783,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-059",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "0cfc56e8-bcc2-4a59-a06d-1fbaa07336de",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T16:42:10.628Z",
+    "lat": 12.44689,
+    "lon": 75.70466,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-062",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "08f038c8-4917-48f1-b8cd-ed4a7ff13651",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T17:13:19.394Z",
+    "lat": 12.51177,
+    "lon": 75.57493,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-050",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "193df3d5-a015-444d-b951-b19d532fee68",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T17:18:04.104Z",
+    "lat": 12.37398,
+    "lon": 75.49732,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-052",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "37eee2c5-6eaa-4f8b-84a4-37e5167d7395",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T17:55:50.191Z",
+    "lat": 12.44224,
+    "lon": 75.692,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-063",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "142f9f92-7947-4f89-838e-7ca00923d445",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T18:10:56.618Z",
+    "lat": 12.40252,
+    "lon": 75.47541,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-058",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "f6d84c2a-7da7-4e4c-82b1-575446c2610d",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T19:26:36.739Z",
+    "lat": 12.51496,
+    "lon": 75.72696,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-081",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "95abe964-c0e9-4ac1-8b34-71ad5dff0f98",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T20:20:59.384Z",
+    "lat": 12.50214,
+    "lon": 75.62926,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-090",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "4f2038e0-93cc-4d4f-bad9-18667ea8125c",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T20:26:40.252Z",
+    "lat": 12.44746,
+    "lon": 75.68749,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-087",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "9675da78-624f-441b-82c5-2f4056cd56b7",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T21:16:56.212Z",
+    "lat": 12.43751,
+    "lon": 75.67996,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-099",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "ac282a0a-661e-4f81-a710-1562ffbb0d19",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-16T22:07:47.136Z",
+    "lat": 12.40387,
+    "lon": 75.49819,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-092",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "f2a434ef-7da8-402c-bca4-46b18186ce69",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-17T01:21:09.363Z",
+    "lat": 12.37795,
+    "lon": 75.49079,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-097",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "0f13892d-ba4b-4074-8da0-965e8b051981",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-17T02:08:27.791Z",
+    "lat": 12.45831,
+    "lon": 75.69539,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-088",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "7c4423e3-e410-47f8-ae7f-b814417eea9f",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-17T03:08:11.240Z",
+    "lat": 12.49107,
+    "lon": 75.63328,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-089",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "c6471587-5d43-4933-921a-7db684df2658",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-17T03:35:46.498Z",
+    "lat": 12.5014,
+    "lon": 75.65135,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-100",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "7c122d55-d119-4897-9bbb-77c73f3d6a8a",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-17T05:41:42.678Z",
+    "lat": 12.41356,
+    "lon": 75.68462,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-084",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "d8bd041e-dbfd-49ba-89c7-cd10601d4913",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-17T05:56:45.920Z",
+    "lat": 12.37761,
+    "lon": 75.50046,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-093",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "7a65c764-d116-470f-8b60-72624cf23d7b",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-17T05:57:44.604Z",
+    "lat": 12.5148,
+    "lon": 75.65363,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-095",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "8b4eaa2a-6e91-4bc6-9259-4cc0a1591e6b",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-17T06:27:56.041Z",
+    "lat": 12.49735,
+    "lon": 75.63626,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-085",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "e8f6d738-d40a-4d14-98d9-b4552683096c",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-17T06:47:15.236Z",
+    "lat": 12.49991,
+    "lon": 75.65219,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-079",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "41a24b65-3dfa-4cf4-8ea6-15ccd39fdef9",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-17T11:32:38.148Z",
+    "lat": 12.44603,
+    "lon": 75.6569,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-091",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "a2c68153-246f-4af3-858e-2a8ba9d2f39e",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-17T11:32:57.908Z",
+    "lat": 12.41863,
+    "lon": 75.68025,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-101",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "cb82336f-d20f-4eac-9dbe-15188ba4e51c",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-17T12:10:12.869Z",
+    "lat": 12.51989,
+    "lon": 75.71985,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-094",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "e5162a9f-84fe-4e8b-873d-6afea7d09bc9",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-17T12:57:50.667Z",
+    "lat": 12.45814,
+    "lon": 75.7502,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-098",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "a9f2ccf0-b858-425e-94d6-5a7a1258739f",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-17T13:05:42.160Z",
+    "lat": 12.4681,
+    "lon": 75.72605,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-082",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "dc203cac-5e55-4054-be91-562af0688a77",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-17T14:11:40.220Z",
+    "lat": 12.46607,
+    "lon": 75.69431,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-080",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "405317d1-5c2b-4620-a7ed-841308f18295",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-17T14:27:44.617Z",
+    "lat": 12.47201,
+    "lon": 75.73374,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-096",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "dc50572b-6985-44f0-b074-cbe1ba59137d",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-17T14:53:20.182Z",
+    "lat": 12.5033,
+    "lon": 75.6417,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-086",
+      "reconstructed": true
+    }
+  },
+  {
+    "id": "9837b332-e63f-4f70-a808-e9b87b7f4161",
+    "polarity": 1,
+    "source_id": "overpass",
+    "event_type": "road_impassable",
+    "observed_at_utc": "2018-08-17T16:19:25.703Z",
+    "lat": 12.49825,
+    "lon": 75.62706,
+    "normalized_value": 1,
+    "raw_value": {
+      "cause": "landslide",
+      "ref": "KDG-LS-2018-083",
+      "reconstructed": true
+    }
+  }
+]

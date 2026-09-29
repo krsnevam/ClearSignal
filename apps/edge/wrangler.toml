@@ -1,0 +1,30 @@
+name = "clearsignal-api"
+main = "src/index.ts"
+compatibility_date = "2024-12-01"
+compatibility_flags = ["nodejs_compat"]
+
+# weights.yaml is imported as text (single source of truth, §21.2)
+rules = [{ type = "Text", globs = ["**/*.yaml"], fallthrough = true }]
+
+[vars]
+REPLAY_MODE = "kodagu-2018"
+REPLAY_SPEED = "60"
+REPLAY_SIM_START = "2018-08-16T03:30:00Z"
+REPLAY_LOOP_SIM_HOURS = "3"
+ALLOWED_ORIGINS = "https://clearsignal.app,http://localhost:5173,http://localhost:4173"
+
+# Secrets (wrangler secret put …): DATABASE_URL, INGEST_TOKEN, TWILIO_AUTH_TOKEN,
+# MSG91_WEBHOOK_TOKEN, SMS_HASH_SALT
+
+[env.staging]
+name = "clearsignal-api-staging"
+
+[env.staging.vars]
+REPLAY_MODE = "kodagu-2018"
+REPLAY_SPEED = "60"
+REPLAY_SIM_START = "2018-08-16T03:30:00Z"
+REPLAY_LOOP_SIM_HOURS = "3"
+ALLOWED_ORIGINS = "https://clearsignal-staging.pages.dev,http://localhost:5173"
+
+# Route on the custom domain once clearsignal.app is registered:
+# routes = [{ pattern = "api.clearsignal.app", custom_domain = true }]
