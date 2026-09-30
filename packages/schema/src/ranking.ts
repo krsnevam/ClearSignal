@@ -13,6 +13,10 @@ export const SourceStatus = z.object({
   refresh_interval_seconds: z.number().int(),
   half_life_seconds: z.number().int(),
   mode: z.enum(['live', 'replay', 'mock']),
+  /** Median observed→received delay over the last 24 h (the source's own lag + ours). */
+  median_latency_seconds: z.number().nullable(),
+  /** Signals received from this source in the last 24 h. */
+  events_24h: z.number().int().nonnegative(),
 });
 export type SourceStatus = z.infer<typeof SourceStatus>;
 
@@ -24,5 +28,15 @@ export const Ranking = z.object({
   scenario: z.string().nullable(),
   recommendations: z.array(Recommendation),
   sources_status: z.array(SourceStatus),
+  /** The live formula (from weights.yaml) so clients can explain scores without a second copy. */
+  formula: z
+    .object({
+      recency_weight: z.number(),
+      agreement_weight: z.number(),
+      reliability_weight: z.number(),
+      high_threshold: z.number(),
+      medium_threshold: z.number(),
+    })
+    .optional(),
 });
 export type Ranking = z.infer<typeof Ranking>;

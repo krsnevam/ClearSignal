@@ -25,7 +25,7 @@ const rec: Recommendation = {
 describe('RecommendationCard', () => {
   it('shows band, score, age, reason, conflict and missing-source chip', () => {
     render(<RecommendationCard rec={rec} rank={3} onOpen={() => {}} />);
-    expect(screen.getByLabelText('MEDIUM confidence, score 54 of 100')).toBeTruthy();
+    expect(screen.getByLabelText('Medium confidence, score 54 of 100')).toBeTruthy();
     expect(screen.getByText('oldest 45 min')).toBeTruthy();
     expect(screen.getByText(/Sources disagree/)).toBeTruthy();
     expect(screen.getByText(/says safe/)).toBeTruthy();

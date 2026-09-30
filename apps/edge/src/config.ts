@@ -13,6 +13,12 @@ const Env = z.object({
   /** Wall-clock instant the replay loop is anchored to; shared by every isolate. */
   REPLAY_ANCHOR_UTC: z.string().datetime().default('2026-01-01T00:00:00Z'),
   ALLOWED_ORIGINS: z.string().default('*'),
+  /** Presenter controls (restart / speed / pause) without a token. Off in production. */
+  DEMO_CONTROLS: z.enum(['on', 'off']).default('on'),
+  /** Reply to each citizen SMS with a short acknowledgement. */
+  SMS_ACK: z.enum(['on', 'off']).default('on'),
+  /** Max SMS accepted per sender per 10 minutes (flood / spoof mitigation). */
+  SMS_RATE_LIMIT: z.coerce.number().int().positive().default(5),
   /** Public URL Twilio posts to — needed to verify signatures behind proxies. */
   PUBLIC_WEBHOOK_URL: z.string().url().optional(),
 });

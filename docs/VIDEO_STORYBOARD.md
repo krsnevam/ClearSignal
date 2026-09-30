@@ -10,8 +10,8 @@ Audience: 5 of 7 reviewers are non-engineers. Lead with the scenario, keep the m
 |---|---|
 | Phone | Samsung Galaxy A54, screen recorder on, brightness max, Do Not Disturb |
 | App | Installed from the live URL, opened once online (warm cache) |
-| Replay speed | `REPLAY_SPEED=1` for beats 2–5 so the list holds still and only *your* actions change it. Use 60 only for a time-lapse B-roll |
-| First frame | Before each take: `POST /replay/restart` with the ingest token → header reads **16 Aug · 09:00** |
+| Replay speed | Options ⚙ → Presenter → **1×** for beats 2–5, so the list holds still and only *your* actions change it. **60×/300×** for time-lapse B-roll |
+| First frame | Before each take: Options → Presenter → **Restart at 09:00 IST** |
 | SMS | Twilio number live (US number if India DLT isn't ready, per risk log). Nokia/feature phone with credit |
 | Village B | **Ponnampet** in the list: a lone SMS, 3 h old, scores **18 Low**, marked *Stale* |
 
@@ -44,6 +44,7 @@ What you should see at 09:00 IST (the deterministic replay): **Bhagamandala** an
 - Shot: split screen, feature phone left, ClearSignal right (Bhagamandala detail open). Text **"Bhagamandala flooded near school"** → new SMS appears under *Signals*, the list card flashes. Target: under 4 s.
 - Contradiction: text **"Bhagamandala water gone down we are safe"** → *Sources disagree*, both sides listed ("Says safe" / "Says hazard").
 - V/O: "We don't hide disagreement. We show it."
+- Optional 5 s insert (operational readiness): tap **Send to team** → the SMS app opens with a ready dispatch ("PRIORITY #1: Bhagamandala… CAUTION: sources disagree"). V/O: "One tap, and the rescue team has it, even without data."
 
 **02:40–03:00 · IEEE fit and the ask** *(Scenario and ecosystem fit)*
 - V/O: "IEEE MOVE brings power and connectivity to disaster zones. IEEE SIGHT is on the ground in Karnataka and Kerala. ClearSignal is the decision layer they can run on any phone."

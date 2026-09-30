@@ -82,3 +82,25 @@ export const Logo = ({ className = 'size-7' }: P) => (
     <rect x="6" y="17.6" width="8" height="3.4" rx="1.7" fill="#b02020" />
   </svg>
 );
+export const GearIcon = ({ className = 'size-6' }: P) => (
+  <svg viewBox="0 0 24 24" className={className} {...base}>
+    <path d="M4 7h10M18 7h2M4 17h2M10 17h10" />
+    <circle cx="16" cy="7" r="2" />
+    <circle cx="8" cy="17" r="2" />
+  </svg>
+);
+export const ArrowUp = ({ className = 'size-4' }: P) => (
+  <svg viewBox="0 0 24 24" className={className} {...base}>
+    <path d="M12 19V5M5 12l7-7 7 7" />
+  </svg>
+);
+export const ArrowDown = ({ className = 'size-4' }: P) => (
+  <svg viewBox="0 0 24 24" className={className} {...base}>
+    <path d="M12 5v14M19 12l-7 7-7-7" />
+  </svg>
+);
+export const DotIcon = ({ className = 'size-4' }: P) => (
+  <svg viewBox="0 0 24 24" className={className} aria-hidden="true">
+    <circle cx="12" cy="12" r="4" fill="currentColor" />
+  </svg>
+);

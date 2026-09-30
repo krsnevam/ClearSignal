@@ -1,5 +1,5 @@
 @import "tailwindcss";
-@import "@fontsource-variable/inter/wght.css";
+@import "./fonts.css";
 
 @theme {
   /* Band colours are fixed by the spec (§10.2). Used as fills/stripes; text on them is ink or white. */
@@ -25,12 +25,18 @@
   --color-warn-bg: #fff3d6;
   --color-err-bg: #fbe3e3;
 
+  /* App chrome (header) stays dark in every theme. */
+  --color-chrome: #0f1720;
+  --color-on-chrome: #ffffff;
+  --color-t2-bg: #dbe7ff;
+  --color-t2-ink: #1e3a8a;
+
   /* "Why this score" parts — distinct from the band colours. */
   --color-part-fresh: #2563eb;
   --color-part-agree: #7c3aed;
   --color-part-trust: #0e7490;
 
-  --font-sans: "Inter Variable", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Kannada", sans-serif;
+  --font-sans: "Inter Variable", "Noto Sans Kannada Variable", "Noto Sans Devanagari Variable", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans Kannada", sans-serif;
 }
 
 html,
@@ -39,12 +45,59 @@ body,
   height: 100%;
 }
 
+/* ── Themes (Options → Display). Band fill colours never change (spec §10.2). ── */
+
+/* Night: for torch-lit control rooms and night shifts. All text pairs ≥ 4.5:1. */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --color-paper: #0b0f14;
+  --color-card: #151b23;
+  --color-ink: #e8edf3;
+  --color-ink-2: #a9b4c2;
+  --color-ink-3: #8f9bab;
+  --color-line: #263040;
+  --color-info: #8ab4ff;
+  --color-info-bg: #13264a;
+  --color-warn-bg: #33260a;
+  --color-err-bg: #3b1515;
+  --color-high-ink: #5fe39a;
+  --color-medium-ink: #f5b94a;
+  --color-low-ink: #ff8f8f;
+  --color-high-soft: #0f2e1d;
+  --color-medium-soft: #33260a;
+  --color-low-soft: #3a1414;
+  --color-chrome: #05080c;
+  --color-t2-bg: #13264a;
+  --color-t2-ink: #b9d0ff;
+}
+
+/* Sunlight: maximum contrast for reading outdoors in glare. */
+[data-theme="sun"] {
+  --color-paper: #ffffff;
+  --color-card: #ffffff;
+  --color-ink: #000000;
+  --color-ink-2: #1c2430;
+  --color-ink-3: #2b3441;
+  --color-line: #8a94a3;
+  --color-high-ink: #064d28;
+  --color-medium-ink: #603a00;
+  --color-chrome: #000000;
+}
+[data-theme="sun"] .cs-card {
+  box-shadow: 0 0 0 2px #000 !important;
+}
+
+/* Large text: scales every rem-based size and spacing by 1.125. */
+[data-text="large"] {
+  font-size: 18px;
+}
+
 body {
   margin: 0;
   background: var(--color-paper);
   color: var(--color-ink);
   font-family: var(--font-sans);
-  font-size: 16px;
+  font-size: 1rem;
   font-feature-settings: "cv11", "ss01";
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: transparent;

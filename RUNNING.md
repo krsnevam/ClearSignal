@@ -128,7 +128,11 @@ Invoke-RestMethod -Method Post -Uri http://localhost:5173/api/replay/restart -He
 
 **Airplane mode:** open the HTTPS/preview version once, then turn on airplane mode, or in DevTools choose Network → *Offline*. The list stays, and a blue *Offline · showing last data from HH:MM* banner appears.
 
-**Slow the replay down** (useful for filming): set `REPLAY_SPEED=1` in `.env` and restart Terminal 1.
+**Language:** tap ⚙ (top right) → *Language* → English, ಕನ್ನಡ or हिन्दी. Phones set to Kannada or Hindi start in that language.
+
+**Presenter controls:** tap ⚙ (top right) → *Presenter* to pause, switch between 1×, 60× and 300×, or restart at 09:00. The same sheet has Night/Sunlight themes, Large text, "How scores work" and **drill mode**. To make 1× the default speed, set `REPLAY_SPEED=1` in `.env` and restart Terminal 1.
+
+**Send to team:** open any village → *Send to team* / *SMS* / *Copy* produces a ready dispatch message.
 
 ---
 

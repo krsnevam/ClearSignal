@@ -10,7 +10,7 @@ ClearSignal is an installable, offline-first phone app that answers one question
 
 | Element | Status |
 |---|---|
-| Ranking, confidence formula, explanations, offline behaviour, SMS webhook | **Real, running code**, with automated tests |
+| Ranking, confidence formula, explanations, offline behaviour, SMS webhook (English + Kannada), dispatch messages, drill mode | **Real, running code**, with automated tests |
 | Village A = 87 / Village B = 18 worked example | **Real**: a merge-blocking test runs the production function |
 | USGS, GDACS, FIRMS, OpenWeather, OSM adapters | **Real integrations** (FIRMS/OpenWeather need API keys) |
 | Sentinel-1 SAR flood mapping | **Real integration** (TU Wien / interTwin dask-flood-mapper); needs the SAR extra installed |
@@ -30,7 +30,9 @@ ClearSignal is an installable, offline-first phone app that answers one question
 
 | Measure | Result | How measured |
 |---|---|---|
-| Automated tests | 49 TypeScript + 9 Python + 4 end-to-end, all passing | `pnpm -r test`, `pytest`, `playwright test` |
+| Automated tests | 56 TypeScript + 9 Python + 6 end-to-end, all passing | `pnpm -r test`, `pytest`, `playwright test` |
+| Accessibility | 0 serious or critical WCAG 2 A/AA violations on list, detail, options and sources | axe-core in the e2e suite |
+| Per-source delay (replay) | CWC 10 min · NWDP 5 min · Sentinel-1 45 min · Copernicus GFM 3 h · SMS ~0 s | Shown live in the Sources tab |
 | First recommendation, cold cache, throttled "Fast 3G" | under the 3 s budget (e2e test) | Playwright, Pixel 7 profile, desktop CPU. **Re-measure on a Galaxy A54 before quoting** |
 | SMS received → card updated | under the 4 s budget (e2e test) | Playwright, local server. **Re-measure over the real Twilio number** |
 | Live source classes | 6 hazard classes, 14 declared sources | `packages/schema/src/sources.ts` |
@@ -41,3 +43,7 @@ ClearSignal is an installable, offline-first phone app that answers one question
 1. Run the comprehension drill with 8+ volunteers on a Galaxy A-series phone and publish the raw times.
 2. Integrate the CWC/NWDP gauge feeds and Copernicus GFM so river and satellite signals are live, not replayed.
 3. Register an India-native inbound SMS route (MSG91 with DLT) so village volunteers can text a local number.
+
+## Languages
+
+The interface is available in **English, Kannada (ಕನ್ನಡ) and Hindi (हिन्दी)**. That covers Kodagu officers and volunteers, and national teams such as NDRF deployed from outside Karnataka. Explanations, change alerts and dispatch messages are generated natively in each language, not machine-translated. Citizen SMS are understood in all three. The Kannada and Hindi text is a draft awaiting native-speaker review.

@@ -15,8 +15,8 @@ export function istTime(iso: string | number): string {
   }).format(new Date(iso));
 }
 
-export function istDate(iso: string | number): string {
-  return new Intl.DateTimeFormat('en-GB', { timeZone: IST, month: 'short', day: 'numeric' }).format(
+export function istDate(iso: string | number, intl = 'en-GB'): string {
+  return new Intl.DateTimeFormat(intl, { timeZone: IST, month: 'short', day: 'numeric' }).format(
     new Date(iso),
   );
 }

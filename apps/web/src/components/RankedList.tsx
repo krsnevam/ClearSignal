@@ -1,4 +1,5 @@
 import type { Recommendation } from '@clearsignal/schema';
+import { useT } from '../i18n';
 import { RecommendationCard } from './RecommendationCard';
 
 export function RankedList({
@@ -10,11 +11,12 @@ export function RankedList({
   changed: ReadonlySet<string>;
   onOpen: (id: string) => void;
 }) {
+  const { t } = useT();
   if (recs.length === 0) {
-    return <p className="px-4 py-10 text-center text-lg text-ink-2">No villages match.</p>;
+    return <p className="px-4 py-10 text-center text-lg text-ink-2">{t('primary.noMatch')}</p>;
   }
   return (
-    <ol className="flex flex-col gap-3 px-4 pb-6" aria-label="Villages ranked by evacuation need">
+    <ol className="flex flex-col gap-3 px-4 pb-6" aria-label={t('primary.listLabel')}>
       {recs.map((r, i) => (
         <RecommendationCard
           key={r.id}

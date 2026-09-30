@@ -45,6 +45,12 @@ export function locate(
       return { lat: v.lat, lon: v.lon, village: v, method: 'village_name' };
     }
   }
+  // Kannada script: feature phones often send ಭಾಗಮಂಡಲ rather than Bhagamandala.
+  for (const v of villages) {
+    if (v.name_kn && body.includes(v.name_kn)) {
+      return { lat: v.lat, lon: v.lon, village: v, method: 'village_name' };
+    }
+  }
   if (fromHash) {
     const vid = registry[fromHash];
     const v = villages.find((x) => x.village_id === vid);
@@ -53,15 +59,42 @@ export function locate(
   return null;
 }
 
+// English + romanised Kannada ("Kanglish") all-clear phrases.
 const SAFE =
-  /\b(safe|receded|water (?:has )?gone( down)?|gone down|all clear|no flood(?:ing)?|road open|we are ok|we are fine)\b/;
-const NEGATED_SAFE = /\b(not|un|no longer)\s*safe\b/;
+  /\b(safe|receded|water (?:has )?gone( down)?|gone down|all clear|no flood(?:ing)?|road open|we are ok|we are fine|surakshita|surakshitha|surakshit|neeru kammi|neeru kadime|neeru hoytu|paani kam|pani kam)\b/;
+const NEGATED_SAFE =
+  /\b(not|un|no longer)\s*safe\b|\bsurakshit(?:h)?avilla\b|\bsurakshit nahi\b|\bsafe nahi\b/;
+// Kannada: ಸುರಕ್ಷಿತ (safe), ನೀರು ಕಡಿಮೆ (water less); ಸುರಕ್ಷಿತವಿಲ್ಲ = not safe.
+// Hindi: सुरक्षित (safe), पानी कम / पानी उतर (water down); सुरक्षित नहीं = not safe.
+const SAFE_KN = /ಸುರಕ್ಷಿತ|ನೀರು\s*ಕಡಿಮೆ|ನೀರು\s*ಇಳಿದಿದೆ|सुरक्षित|पानी\s*कम|पानी\s*उतर/;
+const NEGATED_SAFE_KN = /ಸುರಕ್ಷಿತವಿಲ್ಲ|ಸುರಕ್ಷಿತವಾಗಿಲ್ಲ|सुरक्षित\s*नहीं|असुरक्षित/;
 
 /** +1 hazard, −1 all-clear. Ambiguous messages default to hazard. */
 export function polarity(body: string): 1 | -1 {
   const t = body.toLowerCase();
-  if (NEGATED_SAFE.test(t)) return 1;
-  return SAFE.test(t) ? -1 : 1;
+  if (NEGATED_SAFE.test(t) || NEGATED_SAFE_KN.test(body)) return 1;
+  return SAFE.test(t) || SAFE_KN.test(body) ? -1 : 1;
+}
+
+/** Per-sender sliding window: a flooding or spoofing number can't swamp a village's score. */
+export class SenderRateLimiter {
+  private hits = new Map<string, number[]>();
+  constructor(
+    private readonly max: number,
+    private readonly windowMs = 10 * 60_000,
+  ) {}
+
+  allow(sender: string, nowMs = Date.now()): boolean {
+    const recent = (this.hits.get(sender) ?? []).filter((t) => nowMs - t < this.windowMs);
+    if (recent.length >= this.max) {
+      this.hits.set(sender, recent);
+      return false;
+    }
+    recent.push(nowMs);
+    this.hits.set(sender, recent);
+    if (this.hits.size > 10_000) this.hits.clear(); // bounded memory
+    return true;
+  }
 }
 
 const PHONE = /\+?\d[\d\s-]{8,}\d/g;

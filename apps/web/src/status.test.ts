@@ -23,6 +23,8 @@ const ranking = (lastSeenMinAgo: number): Ranking => ({
       refresh_interval_seconds: 3600,
       half_life_seconds: 3600,
       mode: 'replay',
+      median_latency_seconds: 600,
+      events_24h: 4,
     },
   ],
 });

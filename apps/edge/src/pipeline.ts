@@ -23,8 +23,35 @@ export interface PipelineDeps {
 const WEBHOOK_SOURCES = new Set(['twilio-sms', 'msg91-sms']);
 const MOCK_SOURCES = new Set(['discom-outage']);
 
-export async function sourcesStatus(d: PipelineDeps): Promise<SourceStatus[]> {
+function median(xs: number[]): number | null {
+  if (xs.length === 0) return null;
+  const s = [...xs].sort((a, b) => a - b);
+  const mid = Math.floor(s.length / 2);
+  return s.length % 2 ? (s[mid] as number) : ((s[mid - 1] as number) + (s[mid] as number)) / 2;
+}
+
+/** Per-source observed→received latency and volume over the recent window. */
+function latencyBySource(events: readonly RawEvent[]) {
+  const lags = new Map<string, number[]>();
+  for (const e of events) {
+    const lag = (Date.parse(e.received_at_utc) - Date.parse(e.observed_at_utc)) / 1000;
+    if (!Number.isFinite(lag) || lag < 0) continue;
+    const list = lags.get(e.source_id) ?? [];
+    list.push(lag);
+    lags.set(e.source_id, list);
+  }
+  return lags;
+}
+
+export async function sourcesStatus(
+  d: PipelineDeps,
+  recentEvents?: readonly RawEvent[],
+): Promise<SourceStatus[]> {
   const now = d.clock.now();
+  const recent =
+    recentEvents ??
+    (await d.store.eventsBetween(now.getTime() - LOOKBACK_SECONDS * 1000, now.getTime()));
+  const lags = latencyBySource(recent);
   const seen = await d.store.lastSeenBySource(now.getTime());
   const health = new Map((await d.store.sourceHealth()).map((h) => [h.source_id, h]));
   return SOURCES.map((s) => {
@@ -58,6 +85,11 @@ export async function sourcesStatus(d: PipelineDeps): Promise<SourceStatus[]> {
         : d.clock.scenario && !WEBHOOK_SOURCES.has(s.source_id)
           ? 'replay'
           : 'live',
+      median_latency_seconds: (() => {
+        const m = median(lags.get(s.source_id) ?? []);
+        return m === null ? null : Math.round(m);
+      })(),
+      events_24h: lags.get(s.source_id)?.length ?? 0,
     };
   });
 }
@@ -82,7 +114,7 @@ export async function computeRanking(
     now.getTime() - LOOKBACK_SECONDS * 1000,
     now.getTime(),
   );
-  const status = await sourcesStatus(d);
+  const status = await sourcesStatus(d, events);
   const recommendations = rank(events, {
     now,
     weights: d.weights,
@@ -98,6 +130,7 @@ export async function computeRanking(
       scenario: d.clock.scenario,
       recommendations,
       sources_status: status,
+      formula: { ...d.weights.formula, ...d.weights.bands },
     },
     events,
   };

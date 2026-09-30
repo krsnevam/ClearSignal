@@ -19,6 +19,7 @@
 │   POST /sms-webhook  (Twilio form | MSG91 JSON)              │
 │   POST /ingest       (worker batches, bearer token)          │
 │   GET  /stream       (Server-Sent Events)                    │
+│   POST /replay/restart · /replay/speed  (presenter controls) │
 │   Fusion engine: packages/fusion (same code the tests run)   │
 └────────────┬─────────────────────────────────────────────────┘
              │
@@ -93,7 +94,31 @@ Golden test (merge blocker, `packages/fusion/src/engine.test.ts`): Village A →
 
 ## SMS ingest
 
-Feature phones can't send GPS, so a message is located by, in order: (1) coordinates in the body, (2) a village name, (3) a pre-registered volunteer's hashed number. Messages that can't be located get a reply asking for the village name, and are not stored. Polarity: "safe / water gone down / road open" → all-clear, unless negated ("not safe"). The sender number is stored only as a salted SHA-256 prefix, and phone-number-like strings are removed from the body.
+Feature phones can't send GPS, so a message is located by, in order: (1) coordinates in the body, (2) a village name in English or Kannada script, (3) a pre-registered volunteer's hashed number. Messages that can't be located get a reply asking for the village name, and are not stored. Polarity: "safe / water gone down / road open" → all-clear, unless negated ("not safe"). The sender number is stored only as a salted SHA-256 prefix, and phone-number-like strings are removed from the body.
+
+## Failure modes
+
+The spec asks for three named failure modes with mitigations (criterion 1). There are four, shown to users in Sources → "What breaks, and what happens":
+
+| # | Failure | What the user sees | Mechanism |
+|---|---|---|---|
+| 1 | **Phone network down** (every Kodagu tower in 2018) | The list stays; a blue *"Offline · showing last data from HH:MM"* banner; details still open | Workbox precache + network-first with 3 s timeout; Dexie keeps the last ranking and every opened detail; SSE + 5 s poll reconcile on reconnect. e2e: airplane mode + offline reload |
+| 2 | **A satellite or sensor feed goes silent** | Score decays; card says *Stale*; a "satellite radar silent" chip | Per-source half-lives in `weights.yaml`; T1/T2 sources silent > 2 × half-life are named on every card; Sources tab shows last-seen and delay |
+| 3 | **Reports contradict** | *Sources disagree* flag; both sides listed in the detail view | All-clear reports subtract from agreement rather than averaging in; `conflict_flag`; the dispatch message adds "CAUTION: verify on arrival" |
+| 4 | **Spam or spoofed SMS** | Nothing is swamped; the sender gets a polite reply | Per-sender rate limit (5 / 10 min), T4 lowest trust, tier fixed by registry, idempotent message ids |
+
+## Operational features
+
+| Feature | Where | Why |
+|---|---|---|
+| **Send to team** dispatch | Detail view | Turns a ranking into an action: priority, confidence, reason, caution and a maps link as SMS / WhatsApp / share / copy. `sms:` works with no data connection |
+| **Latest changes** feed | List | Band rises/falls, new villages, conflicts, new reports, from a diff of successive rankings |
+| **Options** | Header ⚙ | Day / Night / Sunlight themes, Large text, "How scores work", presenter controls, drill mode, install |
+| **Drill mode** | Options | Timed comprehension drill with results export (see DRILL_PROTOCOL.md) |
+| **Desktop layout** | ≥ 1024 px | List and map side by side; details as a right-hand drawer |
+| **Multilingual UI** | `apps/web/src/i18n/` | English, Kannada and Hindi. Typed dictionaries (a missing key is a compile error), native plurals (`Intl.PluralRules`) and list joining (`Intl.ListFormat`). The engine emits a language-neutral `reason` beside the English `reason_text`, so each language builds its own grammatical sentence. Kannada shows `place_name_kn`. Map labels stay Latin (MapLibre can't shape Indic scripts) |
+| **Kannada & Hindi SMS** | `sms/parse.ts` | Kannada-script village names, and safe/unsafe keywords in Kannada, Hindi and their romanised forms |
+| **SMS acknowledgement** | `/sms-webhook` | Confirms receipt and invites the all-clear ("text SAFE when the water goes down") |
 
 ## Offline
 
@@ -119,6 +144,7 @@ Banners follow spec §10.3 exactly (`apps/web/src/status.ts`, unit-tested).
 | Fusion engine copied into web + edge | One package, `packages/fusion` | One copy of the formula |
 | `weights.yaml` in `apps/web/src/fusion/` or `config/` | `packages/fusion/weights.yaml` | The spec named two locations; picked one |
 | `events.id` primary key | `(id, observed_at)` | Postgres requires the partition key in unique constraints on partitioned tables |
+| English-only UI (§1.4) | English, Kannada, Hindi | User request; Kodagu officers and national response teams |
 | deck.gl overlay | MapLibre circle layer | ~20 pins don't need deck.gl's weight |
 | Turso Sync spine | **Not built**; Dexie + service worker provide offline | Spec risk log already names Dexie as source of truth; Turso adds a WASM runtime to the phone for no user-visible gain in v1 |
 | vitest 2 | vitest 3 | vitest 2 doesn't support Vite 6 |

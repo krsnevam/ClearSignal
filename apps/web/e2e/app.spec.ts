@@ -77,3 +77,46 @@ test('contradiction → both sides visible on the card', async ({ page }) => {
   await expect(page.getByRole('heading', { name: /Says safe/ })).toBeVisible();
   await expect(page.getByRole('heading', { name: /Says hazard/ })).toBeVisible();
 });
+
+test('accessibility: no serious or critical axe violations (list, detail, options, sources)', async ({
+  page,
+}) => {
+  test.setTimeout(60_000); // axe is CPU-heavy: four full-page scans
+  const { default: AxeBuilder } = await import('@axe-core/playwright');
+  const scan = async (where: string) => {
+    const r = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa'])
+      .exclude('.maplibregl-canvas')
+      .analyze();
+    const bad = r.violations.filter((v) => v.impact === 'serious' || v.impact === 'critical');
+    expect(bad.map((v) => `${where}: ${v.id} (${v.nodes.length})`)).toEqual([]);
+  };
+  await page.goto('/');
+  await expect(page.getByRole('button', { name: /Tap for details/ }).first()).toBeVisible();
+  await scan('list');
+  await page
+    .getByRole('button', { name: /Tap for details/ })
+    .first()
+    .click();
+  await expect(page.getByRole('heading', { name: /^Why \d+\?$/ })).toBeVisible();
+  await scan('detail');
+  await page.getByLabel('Back to list').click();
+  await page.getByLabel('Options').click();
+  await scan('options');
+  await page.keyboard.press('Escape');
+  await page.getByRole('button', { name: /Sources/ }).click();
+  await scan('sources');
+});
+
+test('dispatch message is ready to send from a village', async ({ page, context }) => {
+  await context.grantPermissions(['clipboard-read', 'clipboard-write']);
+  await page.goto('/');
+  await page
+    .getByRole('button', { name: /Tap for details/ })
+    .first()
+    .click();
+  await page.getByRole('button', { name: 'Copy dispatch message' }).click();
+  const text = await page.evaluate(() => navigator.clipboard.readText());
+  expect(text).toMatch(/^ClearSignal \d+ Aug \d\d:\d\d IST\nPRIORITY #1: /);
+  expect(text).toContain('https://maps.google.com/?q=');
+});

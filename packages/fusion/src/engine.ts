@@ -7,7 +7,7 @@ import type {
   SourceTier,
   Weights,
 } from '@clearsignal/schema';
-import { explain } from './explain';
+import { explain, reasonParts } from './explain';
 import { gridCellId, nearestVillage, type Village } from './normalize';
 
 /** The minimal view of an event the confidence formula needs. */
@@ -214,6 +214,7 @@ export function rank(events: readonly RawEvent[], opts: RankOptions): Recommenda
       id: c.key, // stable per location so cached detail views stay valid
       village_id: c.village?.village_id ?? null,
       place_name: c.village?.place_name ?? c.events[0]?.location.place_name ?? c.key,
+      place_name_kn: c.village?.name_kn ?? null,
       taluka: c.village?.taluka ?? c.events[0]?.location.taluka ?? 'Unknown',
       grid_cell_id: gridCellId(c.lat, c.lon),
       centroid: { lat: c.lat, lon: c.lon },
@@ -221,6 +222,7 @@ export function rank(events: readonly RawEvent[], opts: RankOptions): Recommenda
       band: s.band,
       components: s.components,
       reason_text: explain(scoring, s, w),
+      reason: reasonParts(scoring, s),
       oldest_source_age_sec: s.oldest_age_s,
       conflict_flag: s.conflict,
       stale_flag: s.stale,

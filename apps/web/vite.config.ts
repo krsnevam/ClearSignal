@@ -1,10 +1,30 @@
 import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
+import { existsSync, readFileSync, writeFileSync } from 'node:fs';
+import { resolve } from 'node:path';
+import { defineConfig, type Plugin } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
 // HTTPS tunnels used to open the app on a phone (install + offline need HTTPS). See RUNNING.md.
 const tunnelHosts = ['.trycloudflare.com', '.ngrok-free.app', '.ngrok.app', '.loca.lt'];
+
+/**
+ * Production builds stamp the real API origin into dist/_headers (CSP connect-src),
+ * so deploying the API to a workers.dev URL or a custom domain can't silently break the app.
+ */
+function cspApiOrigin(): Plugin {
+  return {
+    name: 'clearsignal-csp-api-origin',
+    apply: 'build',
+    closeBundle() {
+      const file = resolve(__dirname, 'dist/_headers');
+      if (!existsSync(file)) return;
+      const base = process.env.VITE_API_BASE ?? '';
+      const origin = /^https?:\/\//.test(base) ? new URL(base).origin : '';
+      writeFileSync(file, readFileSync(file, 'utf8').replace('__API_ORIGIN__', origin));
+    },
+  };
+}
 
 const apiProxy = {
   target: process.env.API_TARGET ?? 'http://localhost:8787',
@@ -15,6 +35,7 @@ const apiProxy = {
 export default defineConfig({
   plugins: [
     react(),
+    cspApiOrigin(),
     tailwindcss(),
     VitePWA({
       registerType: 'autoUpdate',
@@ -97,5 +118,6 @@ export default defineConfig({
   // One origin for every device: /api/* → edge API (see RUNNING.md).
   server: { host: true, allowedHosts: tunnelHosts, proxy: { '/api': apiProxy } },
   preview: { host: true, allowedHosts: tunnelHosts, proxy: { '/api': apiProxy } },
+  define: { __APP_VERSION__: JSON.stringify(process.env.npm_package_version ?? '0.1.0') },
   build: { target: 'es2020', sourcemap: true },
 });

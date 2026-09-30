@@ -6,6 +6,8 @@ import { useEffect, useRef, useState } from 'react';
 import { BAND_FILL, ConfidenceBadge } from '../components/ConfidenceBadge';
 import { ChevronRight } from '../components/Icons';
 import { SourceAge } from '../components/SourceAge';
+import { placeName, talukaName, useT } from '../i18n';
+import { reasonText } from '../i18n/reason';
 import { useApp } from '../state';
 import { BASEMAP_URL, basemapAvailable, registerPmtiles, warmBasemapCache } from './pmtiles';
 import { basemapStyle } from './style';
@@ -51,6 +53,8 @@ export default function MapView() {
   const map = useRef<maplibregl.Map | null>(null);
   const ranking = useApp((s) => s.ranking);
   const set = useApp((s) => s.set);
+  const dark = useApp((s) => s.prefs.theme === 'dark');
+  const { t, locale } = useT();
   const recs = ranking?.recommendations ?? [];
   const [picked, setPicked] = useState<string | null>(null);
   const selected = recs.find((r) => r.id === picked) ?? recs[0] ?? null;
@@ -65,7 +69,7 @@ export default function MapView() {
       const initial = useApp.getState().ranking?.recommendations ?? [];
       const m = new maplibregl.Map({
         container: el.current,
-        style: basemapStyle(ok ? BASEMAP_URL : null),
+        style: basemapStyle(ok ? BASEMAP_URL : null, dark),
         bounds: boundsOf(initial),
         fitBoundsOptions: { padding: { top: 64, left: 28, right: 110, bottom: 230 }, maxZoom: 11 },
         maxBounds: [
@@ -91,8 +95,8 @@ export default function MapView() {
           filter: ['==', ['get', 'id'], ''],
           paint: {
             'circle-radius': ['interpolate', ['linear'], ['zoom'], 8, 15, 13, 22],
-            'circle-color': '#0f1720',
-            'circle-opacity': 0.18,
+            'circle-color': dark ? '#ffffff' : '#0f1720',
+            'circle-opacity': dark ? 0.25 : 0.18,
           },
         });
         m.addLayer({
@@ -103,7 +107,7 @@ export default function MapView() {
           paint: {
             'circle-radius': ['interpolate', ['linear'], ['zoom'], 8, 7, 13, 12],
             'circle-color': ['get', 'color'],
-            'circle-stroke-color': '#ffffff',
+            'circle-stroke-color': dark ? '#0b0f14' : '#ffffff',
             'circle-stroke-width': 2.5,
           },
         });
@@ -120,7 +124,11 @@ export default function MapView() {
             'text-offset': [0.9, 0],
             'text-optional': true,
           },
-          paint: { 'text-color': '#0f1720', 'text-halo-color': '#ffffff', 'text-halo-width': 1.6 },
+          paint: {
+            'text-color': dark ? '#e8edf3' : '#0f1720',
+            'text-halo-color': dark ? '#0b0f14' : '#ffffff',
+            'text-halo-width': 1.6,
+          },
         });
         const pick = (e: maplibregl.MapLayerMouseEvent) => {
           const id = e.features?.[0]?.properties?.id as string | undefined;
@@ -139,7 +147,7 @@ export default function MapView() {
       map.current?.remove();
       map.current = null;
     };
-  }, []);
+  }, [dark]);
 
   useEffect(() => {
     const src = map.current?.getSource('villages') as GeoJSONSource | undefined;
@@ -163,28 +171,27 @@ export default function MapView() {
   return (
     <div className="absolute inset-0">
       {/* Inline style: maplibre-gl.css (unlayered) sets position: relative and beats Tailwind's layered utilities. */}
-      <section
-        ref={el}
-        style={{ position: 'absolute', inset: 0 }}
-        aria-label="Map of ranked villages in Kodagu"
-      />
+      <section ref={el} style={{ position: 'absolute', inset: 0 }} aria-label={t('map.aria')} />
 
       <div className="pointer-events-none absolute top-3 left-3 flex gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-base shadow-[0_1px_3px_rgb(15_23_32/0.15)]">
         {(['H', 'M', 'L'] as const).map((b) => (
           <span key={b} className="flex items-center gap-1 pr-1 text-ink-2">
             <span className={`size-2.5 rounded-full ${BAND_FILL[b]}`} />
-            {b === 'H' ? 'High' : b === 'M' ? 'Med' : 'Low'}
+            {t(`band.${b}.short`)}
           </span>
         ))}
       </div>
 
       {selected && (
-        <div className="absolute right-3 bottom-3 left-3">
+        <div className="absolute right-3 bottom-3 left-3 lg:right-auto lg:w-[440px]">
           <button
             type="button"
             onClick={() => set({ selectedId: selected.id })}
             className="relative w-full overflow-hidden rounded-2xl bg-card py-3.5 pr-4 pl-5 text-left shadow-[0_4px_16px_rgb(15_23_32/0.18)] active:scale-[0.99]"
-            aria-label={`${selected.place_name}: ${selected.reason_text}. Tap for details.`}
+            aria-label={t('card.aria', {
+              place: placeName(selected, locale),
+              reason: reasonText(selected, locale),
+            })}
           >
             <span
               aria-hidden="true"
@@ -193,21 +200,21 @@ export default function MapView() {
             <div className="flex items-start justify-between gap-3">
               <div className="min-w-0">
                 <p className="text-base font-medium text-ink-3">
-                  <span className="tabular">#{rank}</span> · {selected.taluka} taluka
+                  {t('card.rankTaluka', { rank, taluka: talukaName(selected.taluka, locale) })}
                 </p>
                 <h2 className="truncate text-xl leading-tight font-bold tracking-tight">
-                  {selected.place_name}
+                  {placeName(selected, locale)}
                 </h2>
               </div>
               <ConfidenceBadge band={selected.band} score={selected.composite_score} />
             </div>
             <p className="mt-2 line-clamp-2 text-base leading-snug text-ink">
-              {selected.reason_text}
+              {reasonText(selected, locale)}
             </p>
             <div className="mt-2 flex items-center justify-between">
               <SourceAge seconds={selected.oldest_source_age_sec} stale={selected.stale_flag} />
               <span className="flex items-center gap-0.5 text-base font-semibold text-info">
-                Details <ChevronRight className="size-5" />
+                {t('map.details')} <ChevronRight className="size-5" />
               </span>
             </div>
           </button>

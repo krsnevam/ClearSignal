@@ -3,7 +3,8 @@ import type { Village } from '@clearsignal/fusion';
 /**
  * Kodagu villages used by the v1 demo. Centroids are approximate (±500 m),
  * taken from OSM place nodes; taluka is the 2018 three-taluka division.
- * Population figures are Census 2011 rounded, where known.
+ * Population figures are Census 2011 rounded, where known. Kannada names
+ * (name_kn) are for SMS matching — verify with a native speaker.
  * The bootstrap script seeds the same list into `village_geometries`.
  */
 export const VILLAGES: readonly Village[] = [
@@ -14,6 +15,7 @@ export const VILLAGES: readonly Village[] = [
     lat: 12.4632,
     lon: 75.7628,
     population: 2400,
+    name_kn: 'ಮಕ್ಕಂದೂರು',
   },
   {
     village_id: 'kdg-mukkodlu',
@@ -22,6 +24,7 @@ export const VILLAGES: readonly Village[] = [
     lat: 12.4905,
     lon: 75.7413,
     population: 900,
+    name_kn: 'ಮುಕ್ಕೋಡ್ಲು',
   },
   {
     village_id: 'kdg-hattihole',
@@ -30,6 +33,7 @@ export const VILLAGES: readonly Village[] = [
     lat: 12.5236,
     lon: 75.7322,
     population: 700,
+    name_kn: 'ಹಟ್ಟಿಹೊಳೆ',
   },
   {
     village_id: 'kdg-bhagamandala',
@@ -38,6 +42,7 @@ export const VILLAGES: readonly Village[] = [
     lat: 12.3858,
     lon: 75.5333,
     population: 3100,
+    name_kn: 'ಭಾಗಮಂಡಲ',
   },
   {
     village_id: 'kdg-talakaveri',
@@ -46,6 +51,7 @@ export const VILLAGES: readonly Village[] = [
     lat: 12.3861,
     lon: 75.4948,
     population: 300,
+    name_kn: 'ತಲಕಾವೇರಿ',
   },
   {
     village_id: 'kdg-jodupala',
@@ -54,6 +60,7 @@ export const VILLAGES: readonly Village[] = [
     lat: 12.4935,
     lon: 75.6412,
     population: 600,
+    name_kn: 'ಜೋಡುಪಾಲ',
   },
   {
     village_id: 'kdg-madenadu',
@@ -62,6 +69,7 @@ export const VILLAGES: readonly Village[] = [
     lat: 12.4562,
     lon: 75.6655,
     population: 1500,
+    name_kn: 'ಮದೆನಾಡು',
   },
   {
     village_id: 'kdg-galibeedu',
@@ -70,6 +78,7 @@ export const VILLAGES: readonly Village[] = [
     lat: 12.4318,
     lon: 75.6856,
     population: 1800,
+    name_kn: 'ಗಾಳಿಬೀಡು',
   },
   {
     village_id: 'kdg-monnangeri',
@@ -78,6 +87,7 @@ export const VILLAGES: readonly Village[] = [
     lat: 12.5071,
     lon: 75.6689,
     population: 500,
+    name_kn: 'ಮೊಣ್ಣಂಗೇರಿ',
   },
   {
     village_id: 'kdg-kalur',
@@ -86,6 +96,7 @@ export const VILLAGES: readonly Village[] = [
     lat: 12.476,
     lon: 75.7069,
     population: 1100,
+    name_kn: 'ಕಾಲೂರು',
   },
   {
     village_id: 'kdg-napoklu',
@@ -94,6 +105,7 @@ export const VILLAGES: readonly Village[] = [
     lat: 12.3067,
     lon: 75.7222,
     population: 5200,
+    name_kn: 'ನಾಪೋಕ್ಲು',
   },
   {
     village_id: 'kdg-madikeri',
@@ -102,6 +114,7 @@ export const VILLAGES: readonly Village[] = [
     lat: 12.4244,
     lon: 75.7382,
     population: 33000,
+    name_kn: 'ಮಡಿಕೇರಿ',
   },
   {
     village_id: 'kdg-sampaje',
@@ -110,6 +123,7 @@ export const VILLAGES: readonly Village[] = [
     lat: 12.5003,
     lon: 75.5712,
     population: 2600,
+    name_kn: 'ಸಂಪಾಜೆ',
   },
   {
     village_id: 'kdg-somwarpet',
@@ -118,6 +132,7 @@ export const VILLAGES: readonly Village[] = [
     lat: 12.5977,
     lon: 75.8511,
     population: 7800,
+    name_kn: 'ಸೋಮವಾರಪೇಟೆ',
   },
   {
     village_id: 'kdg-kushalnagar',
@@ -126,6 +141,7 @@ export const VILLAGES: readonly Village[] = [
     lat: 12.4575,
     lon: 75.9594,
     population: 15500,
+    name_kn: 'ಕುಶಾಲನಗರ',
   },
   {
     village_id: 'kdg-suntikoppa',
@@ -134,6 +150,7 @@ export const VILLAGES: readonly Village[] = [
     lat: 12.4563,
     lon: 75.8312,
     population: 6000,
+    name_kn: 'ಸುಂಟಿಕೊಪ್ಪ',
   },
   {
     village_id: 'kdg-shanivarsanthe',
@@ -142,6 +159,7 @@ export const VILLAGES: readonly Village[] = [
     lat: 12.7296,
     lon: 75.8706,
     population: 4000,
+    name_kn: 'ಶನಿವಾರಸಂತೆ',
   },
   {
     village_id: 'kdg-virajpet',
@@ -150,6 +168,7 @@ export const VILLAGES: readonly Village[] = [
     lat: 12.1966,
     lon: 75.8053,
     population: 17200,
+    name_kn: 'ವಿರಾಜಪೇಟೆ',
   },
   {
     village_id: 'kdg-siddapur',
@@ -158,6 +177,7 @@ export const VILLAGES: readonly Village[] = [
     lat: 12.3033,
     lon: 75.8664,
     population: 8000,
+    name_kn: 'ಸಿದ್ದಾಪುರ',
   },
   {
     village_id: 'kdg-ponnampet',
@@ -166,6 +186,7 @@ export const VILLAGES: readonly Village[] = [
     lat: 12.1462,
     lon: 75.9429,
     population: 6300,
+    name_kn: 'ಪೊನ್ನಂಪೇಟೆ',
   },
 ];
 

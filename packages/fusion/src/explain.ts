@@ -1,4 +1,4 @@
-import type { EventType, SourceTier, Weights } from '@clearsignal/schema';
+import type { EventType, Reason, SourceTier, Weights } from '@clearsignal/schema';
 import type { Score, ScoringEvent } from './engine';
 
 const TIER_RANK: Record<SourceTier, number> = { T1: 0, T2: 1, T3: 2, T4: 3 };
@@ -122,4 +122,40 @@ export function explain(events: readonly ScoringEvent[], score: Score, _w: Weigh
   const d = describe(events);
   const body = `${d.text} agree, all within ${age}`;
   return prefix ? `${prefix}${body}` : capitalize(body);
+}
+
+function topGroups(events: readonly ScoringEvent[]) {
+  const groups = groupsOf(events);
+  return {
+    groups: groups.slice(0, 3).map((g) => ({ type: g.type, count: g.count })),
+    more: groups.slice(3).reduce((n, g) => n + g.count, 0),
+  };
+}
+
+/** The same decision explain() makes, as data — rendered per language by the app. */
+export function reasonParts(events: readonly ScoringEvent[], score: Score): Reason {
+  const base = {
+    stale: score.stale,
+    oldest_age_sec: score.oldest_age_s,
+    unverified: false,
+    oppose_groups: [] as Reason['oppose_groups'],
+    oppose_more: 0,
+  };
+  if (events.length === 0) return { ...base, kind: 'none', groups: [], more: 0 };
+  if (score.conflict) {
+    const s = topGroups(events.filter((e) => (e.polarity ?? 1) === 1));
+    const o = topGroups(events.filter((e) => e.polarity === -1));
+    return { ...base, kind: 'conflict', ...s, oppose_groups: o.groups, oppose_more: o.more };
+  }
+  if (events.length === 1) {
+    const only = events[0] as ScoringEvent;
+    return {
+      ...base,
+      kind: 'single',
+      unverified: only.tier === 'T4',
+      groups: [{ type: only.type, count: 1 }],
+      more: 0,
+    };
+  }
+  return { ...base, kind: 'agree', ...topGroups(events) };
 }

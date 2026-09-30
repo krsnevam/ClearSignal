@@ -1,26 +1,59 @@
 import type { Ranking } from '@clearsignal/schema';
 import { api } from '../api';
-import { useApp } from '../state';
+import { type Update, useApp } from '../state';
 import { db } from './dexie';
 
 const POLL_MS = 5_000; // matches the replayer tick (§12.4)
 let inFlight: Promise<void> | null = null;
 
-function diff(prev: Ranking | null, next: Ranking): Set<string> {
-  if (!prev) return new Set();
-  const before = new Map(prev.recommendations.map((r) => [r.id, r]));
+function diff(prev: Ranking | null, next: Ranking): { changed: Set<string>; updates: Update[] } {
   const changed = new Set<string>();
-  for (const r of next.recommendations) {
+  const updates: Update[] = [];
+  if (!prev) return { changed, updates };
+  const at = next.scenario_clock_utc;
+  const before = new Map(prev.recommendations.map((r) => [r.id, r]));
+  const order = { H: 3, M: 2, L: 1 } as const;
+  next.recommendations.forEach((r, i) => {
     const p = before.get(r.id);
-    if (
-      !p ||
-      p.contributing_event_ids.length !== r.contributing_event_ids.length ||
-      p.band !== r.band
-    ) {
+    const add = (kind: Update['kind'], extra: Partial<Update> = {}) =>
+      updates.push({
+        key: `${r.id}:${kind}:${at}`,
+        rec_id: r.id,
+        kind,
+        place_name: r.place_name,
+        place_name_kn: r.place_name_kn ?? null,
+        band: r.band,
+        rank: i + 1,
+        from: p?.composite_score ?? r.composite_score,
+        to: r.composite_score,
+        n: 0,
+        at_utc: at,
+        ...extra,
+      });
+    if (!p) {
       changed.add(r.id);
+      add('new');
+      return;
     }
-  }
-  return changed;
+    if (p.band !== r.band) {
+      changed.add(r.id);
+      add(order[r.band] > order[p.band] ? 'up' : 'down');
+    }
+    if (!p.conflict_flag && r.conflict_flag) {
+      changed.add(r.id);
+      add('conflict');
+    } else if (p.conflict_flag && !r.conflict_flag) {
+      add('resolved');
+    }
+    const grew = r.contributing_event_ids.filter(
+      (id) => !p.contributing_event_ids.includes(id),
+    ).length;
+    if (grew > 0) {
+      changed.add(r.id);
+      if (p.band === r.band) add('report', { n: grew });
+    }
+  });
+  return { changed, updates };
 }
 
 /** Last-known-good from IndexedDB — renders instantly on cold start and when offline. */
@@ -40,11 +73,17 @@ export function refresh(): Promise<void> {
       // A NetworkFirst SW fallback returns an old body; its computed_at gives it away.
       const fromCache = Date.now() - Date.parse(next.computed_at_utc) > 30_000;
       const syncedAt = fromCache ? Date.parse(next.computed_at_utc) : Date.now();
+      const prev = useApp.getState().ranking;
+      // Replay looped or restarted: the clock went backwards, so start the feed afresh.
+      const rewound =
+        !!prev && Date.parse(next.scenario_clock_utc) < Date.parse(prev.scenario_clock_utc);
+      const d = diff(rewound ? null : prev, next);
       s.set({
         ranking: next,
         syncedAt,
         reachable: !fromCache,
-        changed: diff(useApp.getState().ranking, next),
+        changed: d.changed,
+        updates: rewound ? [] : [...d.updates.reverse(), ...useApp.getState().updates].slice(0, 30),
       });
       if (!fromCache) {
         await db.rankings.put({ ...next, synced_at_local: syncedAt }).catch(() => {});
@@ -89,6 +128,7 @@ export function startSyncLoop(): () => void {
 
   const onOnline = () => {
     set({ online: true });
+    void loadInfo();
     void refresh();
     openStream();
   };
@@ -104,6 +144,12 @@ export function startSyncLoop(): () => void {
     if (navigator.onLine && document.visibilityState === 'visible') void refresh();
   }, POLL_MS);
 
+  const loadInfo = () =>
+    api
+      .info()
+      .then((info) => set({ api: info }))
+      .catch(() => {});
+  void loadInfo();
   void loadCached().then(() => refresh());
   if (navigator.onLine) openStream();
 

@@ -249,3 +249,75 @@ describe('SMS parsing', () => {
     expect(stripPii('call +91 98765 43210 now')).toBe('call [number removed] now');
   });
 });
+
+describe('reliability & responsible-data additions', () => {
+  it('rate-limits a flooding sender and still acknowledges', async () => {
+    const { app } = setup({ SMS_RATE_LIMIT: '2' });
+    const post = (i: number) =>
+      app.request('/sms-webhook', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ sender: '911', message: 'Makkandur flooded', requestId: `rl${i}` }),
+      });
+    const bodies: { rate_limited?: boolean; message?: string }[] = [];
+    for (let i = 0; i < 3; i++)
+      bodies.push((await (await post(i)).json()) as { rate_limited?: boolean; message?: string });
+    expect(bodies.map((b) => !!b.rate_limited)).toEqual([false, false, true]);
+    expect((bodies[0] as { message: string }).message).toContain(
+      'flood report for Makkandur received',
+    );
+  });
+
+  it('understands Kannada script and romanised Kannada', async () => {
+    expect(locate('ಭಾಗಮಂಡಲ ಪ್ರವಾಹ', VILLAGES)?.village?.place_name).toBe('Bhagamandala');
+    expect(polarity('ನೀರು ಕಡಿಮೆ ಆಗಿದೆ, ಸುರಕ್ಷಿತ')).toBe(-1);
+    expect(polarity('ಸುರಕ್ಷಿತವಿಲ್ಲ')).toBe(1);
+    expect(polarity('Napoklu neeru kammi, surakshita')).toBe(-1);
+    expect(polarity('surakshitavilla')).toBe(1);
+    // Hindi, for teams and workers from outside Karnataka
+    expect(polarity('मडिकेरी में पानी कम, सब सुरक्षित')).toBe(-1);
+    expect(polarity('यहाँ सुरक्षित नहीं है')).toBe(1);
+    expect(polarity('Makkandur paani kam, surakshit')).toBe(-1);
+    expect(polarity('safe nahi hai, help')).toBe(1);
+  });
+
+  it('pauses and changes replay speed without jumping sim time', async () => {
+    const { app, advance } = setup();
+    advance(30_000); // +30 sim-minutes at 60×
+    const pause = await app.request('/replay/speed', {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ speed: 0 }),
+    });
+    const paused = (await pause.json()) as {
+      scenario_clock_utc: string;
+      replay: { paused: boolean };
+    };
+    expect(paused.replay.paused).toBe(true);
+    advance(600_000);
+    const later = (await (await app.request('/rankings')).json()) as Ranking;
+    expect(later.scenario_clock_utc).toBe(paused.scenario_clock_utc);
+  });
+
+  it('locks presenter controls when DEMO_CONTROLS=off', async () => {
+    const { app } = setup({ DEMO_CONTROLS: 'off' });
+    expect((await app.request('/replay/restart', { method: 'POST' })).status).toBe(401);
+    const ok = await app.request('/replay/restart', {
+      method: 'POST',
+      headers: { authorization: 'Bearer tok' },
+    });
+    expect(ok.status).toBe(200);
+  });
+
+  it('reports per-source latency and sends security headers', async () => {
+    const { app } = setup();
+    const res = await app.request('/sources/status');
+    expect(res.headers.get('x-content-type-options')).toBe('nosniff');
+    const { sources } = (await res.json()) as {
+      sources: { source_id: string; median_latency_seconds: number | null; events_24h: number }[];
+    };
+    const cwc = sources.find((s) => s.source_id === 'cwc-wris');
+    expect(cwc?.median_latency_seconds).toBe(600); // fixture lag: 10 min
+    expect(cwc?.events_24h).toBeGreaterThan(0);
+  });
+});

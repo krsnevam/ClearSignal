@@ -34,6 +34,27 @@ curl -X POST localhost:8787/replay/restart -H "authorization: Bearer $INGEST_TOK
 
 Full first-run setup with real services: `./scripts/bootstrap.sh` (see [`.env.example`](.env.example)).
 
+## What it does
+
+- **Ranked list** with a confidence score, plain-English reason, oldest-signal age, and a *Sources disagree* flag
+- **Why this score:** the three parts (fresh, agreement, trust) as one bar that adds up to the score
+- **Send to team:** one-tap dispatch by SMS, WhatsApp or share, working with no data connection
+- **Latest changes** feed, **offline** mode, **map** with an offline Kodagu basemap, **desktop** two-pane layout
+- **Citizen SMS** from any phone, in English, Kannada or Hindi, rate-limited and acknowledged
+- **English · ಕನ್ನಡ · हिन्दी** interface, with Kannada-script village names
+- **Options:** Night / Sunlight themes, Large text, "How scores work", presenter controls, **drill mode**
+
+## Documents
+
+| For | Read |
+|---|---|
+| Running it anywhere | [RUNNING.md](RUNNING.md) |
+| What's real vs simulated | [docs/REALIZATION.md](docs/REALIZATION.md) |
+| How it works, failure modes | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) |
+| Responsible data | [docs/DATA_POLICY.md](docs/DATA_POLICY.md) |
+| Gaps closed and what's left | [docs/GAP_ANALYSIS.md](docs/GAP_ANALYSIS.md) · [docs/SUBMISSION_CHECKLIST.md](docs/SUBMISSION_CHECKLIST.md) |
+| Video, drill, AI disclosure | [docs/VIDEO_STORYBOARD.md](docs/VIDEO_STORYBOARD.md) · [docs/DRILL_PROTOCOL.md](docs/DRILL_PROTOCOL.md) · [docs/AI_USAGE.md](docs/AI_USAGE.md) |
+
 ## Repository
 
 ```

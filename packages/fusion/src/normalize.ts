@@ -13,6 +13,8 @@ export interface Village {
   lat: number;
   lon: number;
   population?: number;
+  /** Kannada name, used to locate SMS written in Kannada script. */
+  name_kn?: string;
 }
 
 /** Haversine distance in metres. */

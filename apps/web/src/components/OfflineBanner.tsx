@@ -1,8 +1,10 @@
 import { localTime } from '../format';
+import { useT } from '../i18n';
 import type { Banner } from '../status';
 import { OfflineIcon } from './Icons';
 
 export function OfflineBanner({ banner }: { banner: Banner }) {
+  const { t } = useT();
   if (banner.kind === 'offline') {
     return (
       <div
@@ -10,7 +12,7 @@ export function OfflineBanner({ banner }: { banner: Banner }) {
         className="flex items-center gap-2 bg-info-bg px-4 py-2.5 text-base font-semibold text-ink"
       >
         <OfflineIcon className="size-5 shrink-0 text-info" />
-        Offline · showing last data from {localTime(banner.since)}
+        {t('banner.offline', { time: localTime(banner.since) })}
       </div>
     );
   }
@@ -21,9 +23,7 @@ export function OfflineBanner({ banner }: { banner: Banner }) {
         className="flex items-center gap-2 bg-err-bg px-4 py-2.5 text-base font-semibold text-low-ink"
       >
         <OfflineIcon className="size-5 shrink-0" />
-        {banner.since === null
-          ? 'Offline · no data cached on this phone yet'
-          : 'Offline · data older than 24 hours'}
+        {banner.since === null ? t('banner.noCache') : t('banner.expired')}
       </div>
     );
   }

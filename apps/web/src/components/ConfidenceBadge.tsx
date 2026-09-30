@@ -1,5 +1,5 @@
 import type { Band } from '@clearsignal/schema';
-import { BAND_LABEL } from '../format';
+import { useT } from '../i18n';
 
 export const BAND_FILL: Record<Band, string> = { H: 'bg-high', M: 'bg-medium', L: 'bg-low' };
 export const BAND_SOFT: Record<Band, string> = {
@@ -23,10 +23,12 @@ export function ConfidenceBadge({
   score: number;
   large?: boolean;
 }) {
+  const { t } = useT();
+  const label = t(`band.${band}`);
   return (
     <span
       role="img"
-      aria-label={`${BAND_LABEL[band]} confidence, score ${score} of 100`}
+      aria-label={t('band.aria', { band: label, score })}
       className="flex shrink-0 flex-col items-end"
     >
       <span
@@ -38,7 +40,7 @@ export function ConfidenceBadge({
         className={`mt-1.5 inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-base font-semibold ${BAND_SOFT[band]} ${BAND_TEXT[band]}`}
       >
         <span aria-hidden="true" className={`size-2.5 rounded-full ${BAND_FILL[band]}`} />
-        {BAND_LABEL[band].charAt(0) + BAND_LABEL[band].slice(1).toLowerCase()}
+        {label}
       </span>
     </span>
   );

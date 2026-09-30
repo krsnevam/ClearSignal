@@ -2,13 +2,14 @@ import { dedupe, normalizeEvent, type Village, weightsYaml } from '@clearsignal/
 import { type RawEvent, type RawEventInput, tierOf, type Weights } from '@clearsignal/schema';
 import { Hono } from 'hono';
 import { cors } from 'hono/cors';
+import { secureHeaders } from 'hono/secure-headers';
 import { streamSSE } from 'hono/streaming';
 import { z } from 'zod';
 import type { Bus } from './bus';
 import type { Clock } from './clock';
 import type { Config } from './config';
 import { computeRanking, sourcesStatus, toContributing } from './pipeline';
-import { hashSender, locate, polarity, stripPii } from './sms/parse';
+import { hashSender, locate, polarity, SenderRateLimiter, stripPii } from './sms/parse';
 import { twiml, verifyTwilio } from './sms/twilio';
 import type { Store } from './store/types';
 
@@ -42,6 +43,14 @@ export function createApp(d: AppDeps) {
     }),
   );
 
+  app.use('*', secureHeaders({ crossOriginResourcePolicy: 'cross-origin' }));
+  const smsLimiter = new SenderRateLimiter(d.cfg.SMS_RATE_LIMIT);
+
+  /** Presenter controls are open when DEMO_CONTROLS=on, otherwise need the ingest token. */
+  const canControl = (auth: string | undefined) =>
+    d.cfg.DEMO_CONTROLS === 'on' ||
+    (!!d.cfg.INGEST_TOKEN && auth === `Bearer ${d.cfg.INGEST_TOKEN}`);
+
   app.onError((err, c) => {
     console.error(err);
     return c.json({ error: 'internal_error' }, 500);
@@ -53,6 +62,8 @@ export function createApp(d: AppDeps) {
       district: 'kodagu',
       scenario: d.clock.scenario,
       store: d.store.kind,
+      replay: d.clock.info(),
+      demo_controls: d.cfg.DEMO_CONTROLS === 'on',
     }),
   );
   app.get('/health', (c) => c.json({ ok: true }));
@@ -149,6 +160,17 @@ export function createApp(d: AppDeps) {
     if (!body.trim()) return reply(c, sourceId, 'Empty message', 400);
 
     const fromHash = await hashSender(from, d.cfg.SMS_HASH_SALT);
+    if (!smsLimiter.allow(fromHash)) {
+      return reply(
+        c,
+        sourceId,
+        'ClearSignal: we already have your recent reports. Thank you.',
+        202,
+        {
+          rate_limited: true,
+        },
+      );
+    }
     const loc = locate(body, d.villages, d.volunteerRegistry, fromHash);
     if (!loc) {
       return reply(
@@ -194,7 +216,13 @@ export function createApp(d: AppDeps) {
         at_utc: received.toISOString(),
       });
     }
-    return reply(c, sourceId, null, 200, {
+    const ack =
+      d.cfg.SMS_ACK === 'on'
+        ? `ClearSignal: ${event.polarity === -1 ? 'all-clear' : 'flood'} report for ${
+            event.location.place_name ?? 'your area'
+          } received. Thank you.${event.polarity === -1 ? '' : ' Text SAFE when the water goes down.'}`
+        : null;
+    return reply(c, sourceId, ack, 200, {
       event_id: event.id,
       place_name: event.location.place_name,
       polarity: event.polarity,
@@ -236,16 +264,30 @@ export function createApp(d: AppDeps) {
 
   // ── POST /replay/restart — jump the replay loop back to its first frame ───
   app.post('/replay/restart', (c) => {
-    if (d.cfg.INGEST_TOKEN && c.req.header('authorization') !== `Bearer ${d.cfg.INGEST_TOKEN}`) {
-      return c.json({ error: 'unauthorized' }, 401);
-    }
+    if (!canControl(c.req.header('authorization'))) return c.json({ error: 'unauthorized' }, 401);
     d.clock.restart();
     d.bus.publish({
       type: 'rankings-changed',
       reason: 'replay-restart',
       at_utc: new Date().toISOString(),
     });
-    return c.json({ scenario_clock_utc: d.clock.now().toISOString() });
+    return c.json({ scenario_clock_utc: d.clock.now().toISOString(), replay: d.clock.info() });
+  });
+
+  // ── POST /replay/speed {speed} — 0 pauses, 1 real time, 60 default ───────
+  app.post('/replay/speed', async (c) => {
+    if (!canControl(c.req.header('authorization'))) return c.json({ error: 'unauthorized' }, 401);
+    const body = z
+      .object({ speed: z.number().min(0).max(600) })
+      .safeParse(await c.req.json().catch(() => null));
+    if (!body.success) return c.json({ error: 'speed must be a number 0–600' }, 400);
+    d.clock.setSpeed(body.data.speed);
+    d.bus.publish({
+      type: 'rankings-changed',
+      reason: 'replay-restart',
+      at_utc: new Date().toISOString(),
+    });
+    return c.json({ scenario_clock_utc: d.clock.now().toISOString(), replay: d.clock.info() });
   });
 
   return app;

@@ -11,10 +11,30 @@ export const ScoreComponents = z.object({
 });
 export type ScoreComponents = z.infer<typeof ScoreComponents>;
 
+/** Language-neutral reason, so each UI language can build its own sentence. */
+export const ReasonGroup = z.object({ type: EventType, count: z.number().int().positive() });
+export const Reason = z.object({
+  kind: z.enum(['none', 'single', 'agree', 'conflict']),
+  stale: z.boolean(),
+  oldest_age_sec: z.number().int().nonnegative(),
+  /** Top three signal types in tier order (hazard side). */
+  groups: z.array(ReasonGroup),
+  /** Signals beyond the top three types. */
+  more: z.number().int().nonnegative(),
+  /** kind = 'single': whether the lone signal is an unverified citizen report. */
+  unverified: z.boolean(),
+  /** kind = 'conflict': the all-clear side. */
+  oppose_groups: z.array(ReasonGroup),
+  oppose_more: z.number().int().nonnegative(),
+});
+export type Reason = z.infer<typeof Reason>;
+
 export const Recommendation = z.object({
   id: z.string(),
   village_id: z.string().nullable(),
   place_name: z.string(),
+  /** Kannada-script name, when known (village_geometries.name_kn). */
+  place_name_kn: z.string().nullable().optional(),
   taluka: z.string(),
   grid_cell_id: z.string(),
   centroid: z.object({ lat: z.number(), lon: z.number() }),
@@ -22,6 +42,7 @@ export const Recommendation = z.object({
   band: Band,
   components: ScoreComponents,
   reason_text: z.string(),
+  reason: Reason.optional(),
   oldest_source_age_sec: z.number().int().nonnegative(),
   conflict_flag: z.boolean(),
   stale_flag: z.boolean(),

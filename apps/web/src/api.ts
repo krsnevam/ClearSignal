@@ -7,7 +7,11 @@ export const API_BASE: string = (import.meta.env.VITE_API_BASE as string | undef
 
 export class ApiError extends Error {}
 
-async function get<T>(path: string, schema: z.ZodType<T>, timeoutMs = 3000): Promise<T> {
+async function get<T>(
+  path: string,
+  schema: z.ZodType<T, z.ZodTypeDef, unknown>,
+  timeoutMs = 3000,
+): Promise<T> {
   const ctl = new AbortController();
   const timer = setTimeout(() => ctl.abort(), timeoutMs);
   try {
@@ -19,7 +23,27 @@ async function get<T>(path: string, schema: z.ZodType<T>, timeoutMs = 3000): Pro
   }
 }
 
+const ApiInfo = z.object({
+  demo_controls: z.boolean().default(false),
+  replay: z
+    .object({ scenario: z.string().nullable(), speed: z.number(), paused: z.boolean() })
+    .nullable()
+    .default(null),
+});
+
+async function post(path: string, body?: unknown): Promise<void> {
+  const res = await fetch(`${API_BASE}${path}`, {
+    method: 'POST',
+    headers: body === undefined ? {} : { 'content-type': 'application/json' },
+    body: body === undefined ? undefined : JSON.stringify(body),
+  });
+  if (!res.ok) throw new ApiError(`${path}: HTTP ${res.status}`);
+}
+
 export const api = {
+  info: () => get('/', ApiInfo),
+  replayRestart: () => post('/replay/restart'),
+  replaySpeed: (speed: number) => post('/replay/speed', { speed }),
   rankings: () => get('/rankings?district=kodagu', Ranking),
   recommendation: (id: string) =>
     get(`/recommendation/${encodeURIComponent(id)}`, RecommendationDetail),

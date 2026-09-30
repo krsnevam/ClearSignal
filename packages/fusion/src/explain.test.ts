@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { computeScore, type ScoringEvent } from './engine';
-import { explain, humanAge } from './explain';
+import { explain, humanAge, reasonParts } from './explain';
 import { defaultWeights as w } from './weights';
 
 const say = (events: ScoringEvent[]) => explain(events, computeScore(events, w), w);
@@ -72,5 +72,40 @@ describe('explain()', () => {
     expect(humanAge(30)).toBe('1 minute');
     expect(humanAge(2 * 3600 + 1)).toBe('3 hours');
     expect(humanAge(3 * 86400)).toBe('3 days');
+  });
+});
+
+describe('reasonParts()', () => {
+  const parts = (events: ScoringEvent[]) => reasonParts(events, computeScore(events, w));
+  it('mirrors explain() as language-neutral data', () => {
+    expect(
+      parts([
+        e('sentinel-1-cdse', 'T2', 22, 'flood_extent'),
+        e('discom-outage', 'T4', 8, 'power_outage'),
+        e('twilio-sms', 'T4', 5, 'citizen_report'),
+        e('twilio-sms', 'T4', 12, 'citizen_report'),
+      ]),
+    ).toMatchObject({
+      kind: 'agree',
+      stale: false,
+      oldest_age_sec: 22 * 60,
+      groups: [
+        { type: 'flood_extent', count: 1 },
+        { type: 'power_outage', count: 1 },
+        { type: 'citizen_report', count: 2 },
+      ],
+      more: 0,
+    });
+    expect(parts([e('twilio-sms', 'T4', 180, 'citizen_report')])).toMatchObject({
+      kind: 'single',
+      stale: true,
+      unverified: true,
+    });
+    expect(
+      parts([
+        e('sentinel-1-cdse', 'T2', 40, 'flood_extent'),
+        e('twilio-sms', 'T4', 6, 'citizen_report', -1),
+      ]),
+    ).toMatchObject({ kind: 'conflict', oppose_groups: [{ type: 'citizen_report', count: 1 }] });
   });
 });

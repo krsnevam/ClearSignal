@@ -10,6 +10,16 @@
 - Replay restarted before each participant: `curl -X POST -H "authorization: Bearer $INGEST_TOKEN" https://api.clearsignal.app/replay/restart`, so everyone sees the same 09:00 IST frame. At that frame the correct answer is the top card (expected **Bhagamandala** or **Makkandur**; record which one was on top).
 - 5–8 volunteers, not on the team, 18+, signed consent (photo/video) collected first.
 
+## Use the app's drill mode
+
+Options → **Start drill mode** does the stopwatch work for you:
+1. The hand-over screen shows the participant number and the question. **Start timer** rewinds the replay to 09:00 IST, so everyone sees the same frame (when presenter controls are enabled), and opens the list.
+2. A floating timer runs, turning red after 90 s. Tap **Stop** when they've named a village and a reason.
+3. Mark **Correct / Wrong** and type the reason they gave. The top village on screen is recorded automatically.
+4. Options → Comprehension drill shows every run and the median; **Copy CSV / Download** gives you the raw table for below.
+
+Results stay on that phone (browser storage) until you clear them.
+
 ## Script
 
 1. **3-minute onboarding** (read verbatim): "You are a district disaster-response coordinator in Kodagu during the August 2018 floods. Your job is to decide where to send a rescue team first. This app pulls in satellite, river gauge, weather, road and citizen-text information."
