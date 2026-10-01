@@ -183,6 +183,7 @@ export const kn: Dictionary = {
 
   'map.aria': 'ಕೊಡಗಿನ ಶ್ರೇಣೀಕೃತ ಗ್ರಾಮಗಳ ನಕ್ಷೆ',
   'map.loading': 'ನಕ್ಷೆ ಲೋಡ್ ಆಗುತ್ತಿದೆ…',
+  'map.downloading': 'ಆಫ್‌ಲೈನ್ ನಕ್ಷೆ ಡೌನ್‌ಲೋಡ್ ಆಗುತ್ತಿದೆ… {p}%',
   'map.details': 'ವಿವರಗಳು',
 
   'opt.display': 'ಪ್ರದರ್ಶನ',

@@ -206,6 +206,7 @@ export const en = {
   // Map
   'map.aria': 'Map of ranked villages in Kodagu',
   'map.loading': 'Loading map…',
+  'map.downloading': 'Downloading offline map… {p}%',
   'map.details': 'Details',
 
   // Options

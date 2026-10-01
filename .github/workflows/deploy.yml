@@ -18,7 +18,7 @@ jobs:
           curl -fsSL https://github.com/protomaps/go-pmtiles/releases/download/v1.31.2/go-pmtiles_1.31.2_Linux_x86_64.tar.gz | tar xz -C /usr/local/bin pmtiles
           ./scripts/build-pmtiles.sh
       - run: pnpm --filter web build
-        env: { VITE_API_BASE: 'https://api.clearsignal.app' }
+        env: { VITE_API_BASE: ${{ vars.API_URL }} }
       - uses: actions/upload-artifact@v4
         with: { name: web-dist, path: apps/web/dist }
 

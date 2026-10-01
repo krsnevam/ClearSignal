@@ -1,0 +1,56 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+dev-dist/
+build/
+*.tsbuildinfo
+.vite/
+.wrangler/
+
+# Environment & secrets
+.env
+.env.*
+!.env.example
+.dev.vars
+*.pem
+
+# Logs
+*.log
+logs/
+
+# Tests & coverage
+coverage/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Large / generated data
+apps/web/public/kodagu.pmtiles
+*.pmtiles
+*.zarr/
+workers/python/data/
+
+# Editors & OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+
+# Claude Code local settings
+.claude/settings.local.json

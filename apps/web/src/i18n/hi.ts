@@ -187,6 +187,7 @@ export const hi: Dictionary = {
 
   'map.aria': 'कोडगु के रैंक किए गए गाँवों का नक्शा',
   'map.loading': 'नक्शा लोड हो रहा है…',
+  'map.downloading': 'ऑफ़लाइन नक्शा डाउनलोड हो रहा है… {p}%',
   'map.details': 'विवरण',
 
   'opt.display': 'प्रदर्शन',

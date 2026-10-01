@@ -9,7 +9,7 @@ import { SourceAge } from '../components/SourceAge';
 import { placeName, talukaName, useT } from '../i18n';
 import { reasonText } from '../i18n/reason';
 import { useApp } from '../state';
-import { BASEMAP_URL, basemapAvailable, registerPmtiles, warmBasemapCache } from './pmtiles';
+import { loadBasemap, registerPmtiles } from './pmtiles';
 import { basemapStyle } from './style';
 
 const BAND_COLOR = { H: '#0EA657', M: '#F0A020', L: '#B02020' };
@@ -57,19 +57,20 @@ export default function MapView() {
   const { t, locale } = useT();
   const recs = ranking?.recommendations ?? [];
   const [picked, setPicked] = useState<string | null>(null);
+  const [progress, setProgress] = useState<number | null>(null);
   const selected = recs.find((r) => r.id === picked) ?? recs[0] ?? null;
   const rank = selected ? recs.indexOf(selected) + 1 : 0;
 
   useEffect(() => {
     let cancelled = false;
     registerPmtiles();
-    void basemapAvailable().then((ok) => {
+    void loadBasemap((f) => !cancelled && setProgress(f)).then((basemap) => {
+      setProgress(null);
       if (cancelled || !el.current) return;
-      if (ok) void warmBasemapCache();
       const initial = useApp.getState().ranking?.recommendations ?? [];
       const m = new maplibregl.Map({
         container: el.current,
-        style: basemapStyle(ok ? BASEMAP_URL : null, dark),
+        style: basemapStyle(basemap, dark),
         bounds: boundsOf(initial),
         fitBoundsOptions: { padding: { top: 64, left: 28, right: 110, bottom: 230 }, maxZoom: 11 },
         maxBounds: [
@@ -172,6 +173,15 @@ export default function MapView() {
     <div className="absolute inset-0">
       {/* Inline style: maplibre-gl.css (unlayered) sets position: relative and beats Tailwind's layered utilities. */}
       <section ref={el} style={{ position: 'absolute', inset: 0 }} aria-label={t('map.aria')} />
+
+      {progress !== null && (
+        <div
+          role="status"
+          className="absolute inset-x-0 top-16 mx-auto w-fit rounded-full bg-card/95 px-4 py-2 text-base font-semibold shadow"
+        >
+          {t('map.downloading', { p: Math.round(progress * 100) })}
+        </div>
+      )}
 
       <div className="pointer-events-none absolute top-3 left-3 flex gap-1.5 rounded-full bg-card/95 px-3 py-1.5 text-base shadow-[0_1px_3px_rgb(15_23_32/0.15)]">
         {(['H', 'M', 'L'] as const).map((b) => (

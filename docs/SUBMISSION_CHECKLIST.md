@@ -6,7 +6,7 @@ The IEEE Response Quest evidence checklist (`buildSpec.md` §19), with where eac
 
 | # | Item | Status | Where / what's left |
 |---|---|---|---|
-| 1 | Live PWA, installable, works offline | 🔴 | Code is ready and tested (install, offline reload, SW caching). **Deploy:** register `clearsignal.app`, create Cloudflare Pages + Workers, run `./scripts/deploy.sh`. In `apps/web/public/_headers`, keep `connect-src` in step with the API URL |
+| 1 | Live PWA, installable, works offline | ✅ live | **https://clearsignal-app.pages.dev** (API: https://clearsignal-api.clearsignal.workers.dev). Still to do: custom domain `clearsignal.app` and the real SMS number ([DEPLOY.md](../DEPLOY.md) §5–6). Check install + airplane mode on a real phone |
 | 2 | 3-minute video with the three moments | 🔴 | Shot list: [VIDEO_STORYBOARD.md](VIDEO_STORYBOARD.md). Use Options → Presenter (1×, restart) while filming |
 | 3 | `REALIZATION.md` (real vs simulated vs next) | ✅ | [REALIZATION.md](REALIZATION.md). Update the timing rows after measuring on the A54 |
 | 4 | `ARCHITECTURE.md` with the six-stage pipeline | ✅ | [ARCHITECTURE.md](ARCHITECTURE.md) |

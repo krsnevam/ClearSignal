@@ -1,7 +1,7 @@
-import tailwindcss from '@tailwindcss/vite';
-import react from '@vitejs/plugin-react';
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import tailwindcss from '@tailwindcss/vite';
+import react from '@vitejs/plugin-react';
 import { defineConfig, type Plugin } from 'vite';
 import { VitePWA } from 'vite-plugin-pwa';
 
@@ -16,12 +16,14 @@ function cspApiOrigin(): Plugin {
   return {
     name: 'clearsignal-csp-api-origin',
     apply: 'build',
-    closeBundle() {
-      const file = resolve(__dirname, 'dist/_headers');
+    enforce: 'post',
+    writeBundle(options) {
+      const file = resolve(options.dir ?? resolve(__dirname, 'dist'), '_headers');
       if (!existsSync(file)) return;
       const base = process.env.VITE_API_BASE ?? '';
       const origin = /^https?:\/\//.test(base) ? new URL(base).origin : '';
-      writeFileSync(file, readFileSync(file, 'utf8').replace('__API_ORIGIN__', origin));
+      writeFileSync(file, readFileSync(file, 'utf8').replaceAll('__API_ORIGIN__', origin));
+      this.info(`CSP connect-src → 'self' ${origin || '(same origin only)'}`);
     },
   };
 }

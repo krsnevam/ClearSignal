@@ -49,6 +49,7 @@ Full first-run setup with real services: `./scripts/bootstrap.sh` (see [`.env.ex
 | For | Read |
 |---|---|
 | Running it anywhere | [RUNNING.md](RUNNING.md) |
+| Putting it online | [DEPLOY.md](DEPLOY.md) |
 | What's real vs simulated | [docs/REALIZATION.md](docs/REALIZATION.md) |
 | How it works, failure modes | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) |
 | Responsible data | [docs/DATA_POLICY.md](docs/DATA_POLICY.md) |

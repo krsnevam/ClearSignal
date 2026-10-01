@@ -31,7 +31,7 @@ export function basemapStyle(pmtilesUrl: string | null, dark = false): StyleSpec
     sources: {
       protomaps: {
         type: 'vector',
-        url: `pmtiles://${origin}${pmtilesUrl}`,
+        url: pmtilesUrl,
         attribution:
           '© <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> · Protomaps',
       },

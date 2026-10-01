@@ -21,7 +21,7 @@ ClearSignal is an installable, offline-first phone app that answers one question
 
 ## Live URL and the three moments
 
-- **Live:** `https://clearsignal.app` *(pending domain registration and deploy)*
+- **Live:** **https://clearsignal-app.pages.dev** (custom domain `clearsignal.app` pending)
 - **The one text:** a feature phone texts "Bhagamandala flooded near school"; the Bhagamandala card updates on screen.
 - **Airplane mode:** the list stays, a blue banner reads *"Offline · showing last data from HH:MM"*, and it reconciles when back online.
 - **Village A vs Village B:** 87 High vs 18 Low, from the same function the app runs.

@@ -12,7 +12,7 @@ REPLAY_SPEED = "60"
 REPLAY_SIM_START = "2018-08-16T03:30:00Z"
 REPLAY_LOOP_SIM_HOURS = "3"
 DEMO_CONTROLS = "off"   # presenter controls need the ingest token in production
-ALLOWED_ORIGINS = "https://clearsignal.app,http://localhost:5173,http://localhost:4173"
+ALLOWED_ORIGINS = "https://clearsignal.app,https://clearsignal-app.pages.dev,http://localhost:5173,http://localhost:4173"
 
 # Secrets (wrangler secret put …): DATABASE_URL, INGEST_TOKEN, TWILIO_AUTH_TOKEN,
 # MSG91_WEBHOOK_TOKEN, SMS_HASH_SALT
